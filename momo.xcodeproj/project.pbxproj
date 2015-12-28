@@ -1657,7 +1657,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -1676,11 +1676,7 @@
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = "momo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../third_party/FlurryAnalytics\"",
-					"\"$(SRCROOT)/../third_party/amrnb\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-licucore",
@@ -1697,7 +1693,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
-				VALID_ARCHS = armv7;
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WARNING_CFLAGS = (
 					"-licucore",
 					"-ObjC",
@@ -1710,7 +1706,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -1730,11 +1726,7 @@
 				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
 				INFOPLIST_FILE = "momo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../third_party/FlurryAnalytics\"",
-					"\"$(SRCROOT)/../third_party/amrnb\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-licucore",
@@ -1751,7 +1743,7 @@
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
-				VALID_ARCHS = armv7;
+				VALID_ARCHS = "armv7 armv7s arm64";
 				WARNING_CFLAGS = (
 					"-licucore",
 					"-ObjC",
@@ -1759,152 +1751,6 @@
 				);
 			};
 			name = Release;
-		};
-		6D71FE30140651550031D600 /* Distribute */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_INPUT_FILETYPE = automatic;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				OTHER_LDFLAGS = "";
-				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "";
-			};
-			name = Distribute;
-		};
-		6D71FE31140651550031D600 /* Distribute */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: NetDragon Websoft Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NetDragon Websoft Inc.";
-				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_INPUT_FILETYPE = automatic;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = momo_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					NDEBUG,
-					NS_BLOCK_ASSERTIONS,
-					PL_DB_PRIVATE,
-				);
-				GCC_WARN_ABOUT_GLOBAL_CONSTRUCTORS = NO;
-				GCC_WARN_SHADOW = NO;
-				GCC_WARN_SIGN_COMPARE = NO;
-				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
-				INFOPLIST_FILE = "momo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../third_party/FlurryAnalytics\"",
-					"\"$(SRCROOT)/../third_party/amrnb\"",
-				);
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-licucore",
-					"-ObjC",
-					"-all_load",
-				);
-				OTHER_LDFLAGS = (
-					"-licucore",
-					"-ObjC",
-				);
-				OTHER_TEST_FLAGS = "-licucore -ObjC";
-				PRODUCT_NAME = momo;
-				PROVISIONING_PROFILE = "92303326-0A87-4B08-96CF-EB83AD4EEAF7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "92303326-0A87-4B08-96CF-EB83AD4EEAF7";
-				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
-				VALID_ARCHS = armv7;
-				WARNING_CFLAGS = (
-					"-licucore",
-					"-ObjC",
-					"-all_load",
-				);
-			};
-			name = Distribute;
-		};
-		6DAF715E140E250C0056977D /* DebugDistribute */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_INPUT_FILETYPE = automatic;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_SIGN_COMPARE = NO;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "";
-				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "";
-			};
-			name = DebugDistribute;
-		};
-		6DAF715F140E250C0056977D /* DebugDistribute */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
-				GCC_INPUT_FILETYPE = automatic;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = momo_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = PL_DB_PRIVATE;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_ABOUT_GLOBAL_CONSTRUCTORS = NO;
-				GCC_WARN_SHADOW = NO;
-				GCC_WARN_SIGN_COMPARE = NO;
-				HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
-				INFOPLIST_FILE = "momo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../third_party/FlurryAnalytics\"",
-					"\"$(SRCROOT)/../third_party/amrnb\"",
-				);
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CPLUSPLUSFLAGS = (
-					"-licucore",
-					"-ObjC",
-					"-all_load",
-				);
-				OTHER_LDFLAGS = (
-					"-licucore",
-					"-ObjC",
-				);
-				OTHER_TEST_FLAGS = "-licucore -ObjC";
-				PRODUCT_NAME = momo;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";
-				VALID_ARCHS = armv7;
-				WARNING_CFLAGS = (
-					"-licucore",
-					"-ObjC",
-					"-all_load",
-				);
-			};
-			name = DebugDistribute;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1953,9 +1799,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
-				6DAF715F140E250C0056977D /* DebugDistribute */,
 				1D6058950D05DD3E006BFB54 /* Release */,
-				6D71FE31140651550031D600 /* Distribute */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1964,9 +1808,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
-				6DAF715E140E250C0056977D /* DebugDistribute */,
 				C01FCF5008A954540054247B /* Release */,
-				6D71FE30140651550031D600 /* Distribute */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

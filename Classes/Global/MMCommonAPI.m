@@ -508,7 +508,7 @@
                                     message:nil
                                     buttons:[NSArray arrayWithObjects:@"拨打电话", @"发短信", nil]
                                  showInView:showInView
-                                  onDismiss:^(NSInteger buttonIndex) 
+                                  onDismiss:^(int buttonIndex)
          {
          if (0 == buttonIndex) {
              [self dial:telNumber];
