@@ -1,0 +1,19 @@
+//
+// Prefix header for all source files of the 'momo' target in the 'momo' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+    #import <QuartzCore/QuartzCore.h>
+    #import "BlocksKit.h"
+    #import "MMLogger.h"
+
+#ifndef _OPTIMIZE_
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...) {}
+#endif
+
+
+#endif

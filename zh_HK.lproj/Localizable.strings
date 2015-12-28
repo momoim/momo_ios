@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>MMAddressBookNameKey</key>
+    <string>Contact</string>
+
+	<key>MMDialViewNameKey</key>
+    <string>撥號</string>
+
+	<key>MMFavoritesNameKey</key>
+    <string>收藏夾</string>
+	
+	<key>MMSettingNameKey</key>
+	<string>設置</string>
+
+	<key>MMMessageNameKey</key>
+	<string>動態</string>
+</dict>
+</plist>
