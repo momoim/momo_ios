@@ -69,11 +69,11 @@
 		6D8942B213FD33F900B693B3 /* PLSqliteResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D89429913FD33F900B693B3 /* PLSqliteResultSet.m */; };
 		6D8CB43D13F4D3C100610917 /* MMPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8CB43C13F4D3C100610917 /* MMPreference.m */; };
 		6D91B7DA13BB1FC0001FB2D7 /* MMLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D91B72613BB0A61001FB2D7 /* MMLoginService.m */; };
+		6D9BC0E71C31C10A00F0A2AE /* MMFaceTextFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0E41C31C10A00F0A2AE /* MMFaceTextFrame.m */; };
+		6D9BC0E81C31C10A00F0A2AE /* MMFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0E61C31C10A00F0A2AE /* MMFaceView.m */; };
+		6D9BC0EB1C31C13300F0A2AE /* MMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0EA1C31C13300F0A2AE /* MMMapViewController.m */; };
 		6DA0CD0B138A41FB005B8CDB /* MMRelativeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0CD0A138A41FB005B8CDB /* MMRelativeLayout.m */; };
 		6DA0CD4D138A54FC005B8CDB /* MMLayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0CD4C138A54FC005B8CDB /* MMLayoutParams.m */; };
-		6DA639D61C31A28200FADFD6 /* MMFaceTextFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA639D01C31A28200FADFD6 /* MMFaceTextFrame.m */; };
-		6DA639D71C31A28200FADFD6 /* MMFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA639D21C31A28200FADFD6 /* MMFaceView.m */; };
-		6DA639DC1C31A2F800FADFD6 /* MMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA639DB1C31A2F800FADFD6 /* MMMapViewController.m */; };
 		6DAC41511425CBC60064A73A /* MMAboutMeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAC41501425CBC60064A73A /* MMAboutMeChatViewController.m */; };
 		6DAE7362142AC77100E48DE2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DAE7361142AC77100E48DE2 /* CoreLocation.framework */; };
 		6DB46DDA142EEEB7006572D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB46DD9142EEEB7006572D2 /* AVFoundation.framework */; };
@@ -350,6 +350,13 @@
 		6D8EDA0014A8662000F1C255 /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
 		6D91B72513BB0A61001FB2D7 /* MMLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMLoginService.h; path = Uap/MMLoginService.h; sourceTree = "<group>"; };
 		6D91B72613BB0A61001FB2D7 /* MMLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMLoginService.m; path = Uap/MMLoginService.m; sourceTree = "<group>"; };
+		6D9BC0E21C31C10A00F0A2AE /* MMFaceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFaceDelegate.h; sourceTree = "<group>"; };
+		6D9BC0E31C31C10A00F0A2AE /* MMFaceTextFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFaceTextFrame.h; sourceTree = "<group>"; };
+		6D9BC0E41C31C10A00F0A2AE /* MMFaceTextFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFaceTextFrame.m; sourceTree = "<group>"; };
+		6D9BC0E51C31C10A00F0A2AE /* MMFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFaceView.h; sourceTree = "<group>"; };
+		6D9BC0E61C31C10A00F0A2AE /* MMFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFaceView.m; sourceTree = "<group>"; };
+		6D9BC0E91C31C13300F0A2AE /* MMMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMapViewController.h; sourceTree = "<group>"; };
+		6D9BC0EA1C31C13300F0A2AE /* MMMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMapViewController.m; sourceTree = "<group>"; };
 		6DA063E91425ECD50014AA8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6DA063EE1425ED060014AA8E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6DA063F01425ED2D0014AA8E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -360,13 +367,6 @@
 		6DA0CD0A138A41FB005B8CDB /* MMRelativeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMRelativeLayout.m; path = Layout/MMRelativeLayout.m; sourceTree = "<group>"; };
 		6DA0CD4B138A54FC005B8CDB /* MMLayoutParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMLayoutParams.h; path = Layout/MMLayoutParams.h; sourceTree = "<group>"; };
 		6DA0CD4C138A54FC005B8CDB /* MMLayoutParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMLayoutParams.m; path = Layout/MMLayoutParams.m; sourceTree = "<group>"; };
-		6DA639CF1C31A28200FADFD6 /* MMFaceTextFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFaceTextFrame.h; sourceTree = "<group>"; };
-		6DA639D01C31A28200FADFD6 /* MMFaceTextFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFaceTextFrame.m; sourceTree = "<group>"; };
-		6DA639D11C31A28200FADFD6 /* MMFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFaceView.h; sourceTree = "<group>"; };
-		6DA639D21C31A28200FADFD6 /* MMFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFaceView.m; sourceTree = "<group>"; };
-		6DA639D91C31A2B500FADFD6 /* MMFaceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMFaceDelegate.h; sourceTree = "<group>"; };
-		6DA639DA1C31A2F800FADFD6 /* MMMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMapViewController.h; sourceTree = "<group>"; };
-		6DA639DB1C31A2F800FADFD6 /* MMMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMapViewController.m; sourceTree = "<group>"; };
 		6DAC414F1425CBC60064A73A /* MMAboutMeChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMAboutMeChatViewController.h; sourceTree = "<group>"; };
 		6DAC41501425CBC60064A73A /* MMAboutMeChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMAboutMeChatViewController.m; sourceTree = "<group>"; };
 		6DAC41521425DEFE0064A73A /* MMGlobalStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMGlobalStyle.h; sourceTree = "<group>"; };
@@ -760,7 +760,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6DA639CE1C31A28200FADFD6 /* IM */,
 				6D873CBC1383927300C33439 /* Layout */,
 				8C95EA1312DDA984008C5640 /* Uap */,
 				8C95E95C12DDA52C008C5640 /* Database */,
@@ -928,20 +927,6 @@
 			path = iPublicUtility;
 			sourceTree = "<group>";
 		};
-		6DA639CE1C31A28200FADFD6 /* IM */ = {
-			isa = PBXGroup;
-			children = (
-				6DA639DA1C31A2F800FADFD6 /* MMMapViewController.h */,
-				6DA639DB1C31A2F800FADFD6 /* MMMapViewController.m */,
-				6DA639D91C31A2B500FADFD6 /* MMFaceDelegate.h */,
-				6DA639CF1C31A28200FADFD6 /* MMFaceTextFrame.h */,
-				6DA639D01C31A28200FADFD6 /* MMFaceTextFrame.m */,
-				6DA639D11C31A28200FADFD6 /* MMFaceView.h */,
-				6DA639D21C31A28200FADFD6 /* MMFaceView.m */,
-			);
-			path = IM;
-			sourceTree = "<group>";
-		};
 		8C0310BA155CC61300D85CCD /* BlocksKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -1046,6 +1031,13 @@
 				6DAC41501425CBC60064A73A /* MMAboutMeChatViewController.m */,
 				04B3140912E0393000B1324F /* MMBrowseMessageViewController.h */,
 				04B3140A12E0393000B1324F /* MMBrowseMessageViewController.m */,
+				6D9BC0E91C31C13300F0A2AE /* MMMapViewController.h */,
+				6D9BC0EA1C31C13300F0A2AE /* MMMapViewController.m */,
+				6D9BC0E21C31C10A00F0A2AE /* MMFaceDelegate.h */,
+				6D9BC0E31C31C10A00F0A2AE /* MMFaceTextFrame.h */,
+				6D9BC0E41C31C10A00F0A2AE /* MMFaceTextFrame.m */,
+				6D9BC0E51C31C10A00F0A2AE /* MMFaceView.h */,
+				6D9BC0E61C31C10A00F0A2AE /* MMFaceView.m */,
 				04B4C38E12F29BFE00BD7773 /* MMCommentCell.h */,
 				04B4C38F12F29BFE00BD7773 /* MMCommentCell.m */,
 				04B3140D12E0393000B1324F /* MMMessageCell.h */,
@@ -1105,27 +1097,6 @@
 		8C95E95C12DDA52C008C5640 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				8C95E9D612DDA761008C5640 /* pinyin */,
-				8C95E9C012DDA6BF008C5640 /* common */,
-				8C95E97012DDA612008C5640 /* for_UI */,
-			);
-			name = Database;
-			sourceTree = "<group>";
-		};
-		8C95E97012DDA612008C5640 /* for_UI */ = {
-			isa = PBXGroup;
-			children = (
-				04B3144712E03B3F00B1324F /* MMUIComment.h */,
-				04B3144812E03B3F00B1324F /* MMUIComment.m */,
-				04B3144B12E03B3F00B1324F /* MMUIMessage.h */,
-				04B3144C12E03B3F00B1324F /* MMUIMessage.m */,
-			);
-			name = for_UI;
-			sourceTree = "<group>";
-		};
-		8C95E9C012DDA6BF008C5640 /* common */ = {
-			isa = PBXGroup;
-			children = (
 				8C95E9C912DDA756008C5640 /* DbStruct.h */,
 				8C95E9CA12DDA756008C5640 /* DbStruct.m */,
 				8C95E9CB12DDA756008C5640 /* DefineDictionary.h */,
@@ -1150,8 +1121,13 @@
 				6D85712A13E65BB20021CBC3 /* MMAboutMeManager.m */,
 				8CA9E1A513EA6B5D004DC25A /* MMMomoUser.h */,
 				8CA9E1A613EA6B5D004DC25A /* MMMomoUser.m */,
+				04B3144712E03B3F00B1324F /* MMUIComment.h */,
+				04B3144812E03B3F00B1324F /* MMUIComment.m */,
+				04B3144B12E03B3F00B1324F /* MMUIMessage.h */,
+				04B3144C12E03B3F00B1324F /* MMUIMessage.m */,
+				8C95E9D612DDA761008C5640 /* pinyin */,
 			);
-			name = common;
+			name = Database;
 			sourceTree = "<group>";
 		};
 		8C95E9D612DDA761008C5640 /* pinyin */ = {
@@ -1467,7 +1443,6 @@
 				9C5EBD4F11C32F00003149CA /* MMGlobalData.m in Sources */,
 				9CF1863B11D2EA41007C62D2 /* MMThemeMgr.m in Sources */,
 				9CFDA71511FABB7F005B40D7 /* MMCommonAPI.m in Sources */,
-				6DA639D71C31A28200FADFD6 /* MMFaceView.m in Sources */,
 				8C95E9A912DDA65F008C5640 /* contact_match.cc in Sources */,
 				8C95E9B512DDA65F008C5640 /* MMModel.mm in Sources */,
 				8C95E9B712DDA65F008C5640 /* MMPhoneticAbbr.mm in Sources */,
@@ -1493,6 +1468,7 @@
 				04B37DF41303CB86004BB4F2 /* ASIDataCompressor.m in Sources */,
 				04B37DF51303CB86004BB4F2 /* ASIDataDecompressor.m in Sources */,
 				04B37DF61303CB86004BB4F2 /* ASIDownloadCache.m in Sources */,
+				6D9BC0EB1C31C13300F0A2AE /* MMMapViewController.m in Sources */,
 				04B37DF71303CB86004BB4F2 /* ASIFormDataRequest.m in Sources */,
 				04B37DF81303CB86004BB4F2 /* ASIHTTPRequest.m in Sources */,
 				04B37DF91303CB86004BB4F2 /* ASIInputStream.m in Sources */,
@@ -1513,6 +1489,7 @@
 				8CA58E7913777967006B801E /* MMWebImageView.m in Sources */,
 				8CA58E8013778C6E006B801E /* MMWebImageButton.m in Sources */,
 				8C9BBEE51380F877001B62B1 /* MBProgressHUD.m in Sources */,
+				6D9BC0E81C31C10A00F0A2AE /* MMFaceView.m in Sources */,
 				8C9BBEF91380F8D3001B62B1 /* MWPhoto.m in Sources */,
 				8C9BBEFA1380F8D3001B62B1 /* MWPhotoBrowser.m in Sources */,
 				8C9BBEFB1380F8D3001B62B1 /* UIImage+Decompress.m in Sources */,
@@ -1593,7 +1570,6 @@
 				8CAB4766151B189A006232C5 /* SBJsonWriter.m in Sources */,
 				8CAB4768151B1910006232C5 /* SBJson.m in Sources */,
 				F065D41E151C21E10068C489 /* MMAlbumPickerController.m in Sources */,
-				6DA639D61C31A28200FADFD6 /* MMFaceTextFrame.m in Sources */,
 				F065D432151C61710068C489 /* MMAssetsViewController.m in Sources */,
 				F065D433151C61710068C489 /* MMAsset.m in Sources */,
 				F065D434151C61710068C489 /* MMAssetCell.m in Sources */,
@@ -1610,6 +1586,7 @@
 				8C0310FD155CC61300D85CCD /* NSArray+BlocksKit.m in Sources */,
 				8C0310FE155CC61300D85CCD /* NSCache+BlocksKit.m in Sources */,
 				8C0310FF155CC61300D85CCD /* NSDictionary+BlocksKit.m in Sources */,
+				6D9BC0E71C31C10A00F0A2AE /* MMFaceTextFrame.m in Sources */,
 				8C031100155CC61300D85CCD /* NSIndexSet+BlocksKit.m in Sources */,
 				8C031101155CC61300D85CCD /* NSInvocation+BlocksKit.m in Sources */,
 				8C031102155CC61300D85CCD /* NSMutableArray+BlocksKit.m in Sources */,
@@ -1629,7 +1606,6 @@
 				8C031110155CC61300D85CCD /* UIGestureRecognizer+BlocksKit.m in Sources */,
 				8C031111155CC61300D85CCD /* UIPopoverController+BlocksKit.m in Sources */,
 				8C031112155CC61300D85CCD /* UIView+BlocksKit.m in Sources */,
-				6DA639DC1C31A2F800FADFD6 /* MMMapViewController.m in Sources */,
 				8C031113155CC61300D85CCD /* UIWebView+BlocksKit.m in Sources */,
 				8CB75B2215BD3222000664DF /* MMGroupListMgr.m in Sources */,
 				8CB6752115C1118400A0CC39 /* MMSelectGroupView.m in Sources */,
@@ -1658,8 +1634,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Zhifeng Zhou (PV548P44SL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Zhifeng Zhou (PV548P44SL)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1707,8 +1683,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Zhifeng Zhou (HB5A8TLKYL)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Zhifeng Zhou (HB5A8TLKYL)";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
