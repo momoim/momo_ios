@@ -142,7 +142,6 @@
 		8CA8D606134DA912003A45F5 /* MMDBUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA8D605134DA912003A45F5 /* MMDBUpdater.m */; };
 		8CA9253814301803003D606E /* MMUserMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9253714301802003D606E /* MMUserMessageViewController.m */; };
 		8CA931D913B9C5F500B1C816 /* MMLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA931D813B9C5F500B1C816 /* MMLogger.m */; };
-		8CA95C43156F5FCD001A290A /* MMCardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA95C42156F5FCD001A290A /* MMCardManager.m */; };
 		8CA9A50B142199E000B8376A /* BCBlockBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9A4FE142199E000B8376A /* BCBlockBorder.m */; };
 		8CA9A50C142199E000B8376A /* BCImageNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9A500142199E000B8376A /* BCImageNode.m */; };
 		8CA9A50D142199E000B8376A /* BCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9A502142199E000B8376A /* BCNode.m */; };
@@ -201,7 +200,6 @@
 		9CF1863B11D2EA41007C62D2 /* MMThemeMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF1863A11D2EA41007C62D2 /* MMThemeMgr.m */; };
 		9CFDA71511FABB7F005B40D7 /* MMCommonAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFDA71411FABB7F005B40D7 /* MMCommonAPI.m */; };
 		E23566EE14E16FFA00DC5BD4 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23566ED14E16FFA00DC5BD4 /* AddressBookUI.framework */; };
-		E2ABE1FB1306235800193209 /* MMChatFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ABE1FA1306235800193209 /* MMChatFriend.m */; };
 		F02194EF16269F4700CC07D4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F02194E316267C3800CC07D4 /* Default-568h@2x.png */; };
 		F02DEAAE152E895600847BE4 /* MMSelectAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F02DEAAD152E895600847BE4 /* MMSelectAddressViewController.m */; };
 		F065D41E151C21E10068C489 /* MMAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = F065D413151C21E10068C489 /* MMAlbumPickerController.m */; };
@@ -511,8 +509,6 @@
 		8CA9253714301802003D606E /* MMUserMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMUserMessageViewController.m; sourceTree = "<group>"; };
 		8CA931D713B9C5F500B1C816 /* MMLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLogger.h; sourceTree = "<group>"; };
 		8CA931D813B9C5F500B1C816 /* MMLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMLogger.m; sourceTree = "<group>"; };
-		8CA95C41156F5FCD001A290A /* MMCardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMCardManager.h; path = Database/MMCardManager.h; sourceTree = "<group>"; };
-		8CA95C42156F5FCD001A290A /* MMCardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMCardManager.m; path = Database/MMCardManager.m; sourceTree = "<group>"; };
 		8CA9A4FD142199E000B8376A /* BCBlockBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCBlockBorder.h; sourceTree = "<group>"; };
 		8CA9A4FE142199E000B8376A /* BCBlockBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCBlockBorder.m; sourceTree = "<group>"; };
 		8CA9A4FF142199E000B8376A /* BCImageNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCImageNode.h; sourceTree = "<group>"; };
@@ -626,8 +622,6 @@
 		9CFDA71311FABB7F005B40D7 /* MMCommonAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMCommonAPI.h; sourceTree = "<group>"; };
 		9CFDA71411FABB7F005B40D7 /* MMCommonAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMCommonAPI.m; sourceTree = "<group>"; };
 		E23566ED14E16FFA00DC5BD4 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
-		E2ABE1F91306235800193209 /* MMChatFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMChatFriend.h; path = Database/MMChatFriend.h; sourceTree = "<group>"; };
-		E2ABE1FA1306235800193209 /* MMChatFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMChatFriend.m; path = Database/MMChatFriend.m; sourceTree = "<group>"; };
 		E2B2164913A2021D003B6BA8 /* MMGlobalDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMGlobalDefine.h; sourceTree = "<group>"; };
 		F02194E316267C3800CC07D4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F02DEAAC152E895600847BE4 /* MMSelectAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSelectAddressViewController.h; sourceTree = "<group>"; };
@@ -1148,8 +1142,6 @@
 				04B3145512E03B6900B1324F /* MMMessage.m */,
 				04B558CA1304D4B00026FAFB /* MMDraft.h */,
 				04B558CB1304D4B00026FAFB /* MMDraft.m */,
-				E2ABE1F91306235800193209 /* MMChatFriend.h */,
-				E2ABE1FA1306235800193209 /* MMChatFriend.m */,
 				9CA55F4113319F5500069D3A /* MMDbProfile.h */,
 				9CA55F4213319F5500069D3A /* MMDbProfile.m */,
 				8CA8D604134DA912003A45F5 /* MMDBUpdater.h */,
@@ -1158,8 +1150,6 @@
 				6D85712A13E65BB20021CBC3 /* MMAboutMeManager.m */,
 				8CA9E1A513EA6B5D004DC25A /* MMMomoUser.h */,
 				8CA9E1A613EA6B5D004DC25A /* MMMomoUser.m */,
-				8CA95C41156F5FCD001A290A /* MMCardManager.h */,
-				8CA95C42156F5FCD001A290A /* MMCardManager.m */,
 			);
 			name = common;
 			sourceTree = "<group>";
@@ -1499,7 +1489,6 @@
 				04B4F46E12ED5242007E7C87 /* MMSelectFriendViewController.m in Sources */,
 				04B4C39012F29BFE00BD7773 /* MMCommentCell.m in Sources */,
 				04B273CF12F5124D00E5F2EA /* MMNewCommentViewController.m in Sources */,
-				E2ABE1FB1306235800193209 /* MMChatFriend.m in Sources */,
 				04B37DF31303CB86004BB4F2 /* ASIAuthenticationDialog.m in Sources */,
 				04B37DF41303CB86004BB4F2 /* ASIDataCompressor.m in Sources */,
 				04B37DF51303CB86004BB4F2 /* ASIDataDecompressor.m in Sources */,
@@ -1642,7 +1631,6 @@
 				8C031112155CC61300D85CCD /* UIView+BlocksKit.m in Sources */,
 				6DA639DC1C31A2F800FADFD6 /* MMMapViewController.m in Sources */,
 				8C031113155CC61300D85CCD /* UIWebView+BlocksKit.m in Sources */,
-				8CA95C43156F5FCD001A290A /* MMCardManager.m in Sources */,
 				8CB75B2215BD3222000664DF /* MMGroupListMgr.m in Sources */,
 				8CB6752115C1118400A0CC39 /* MMSelectGroupView.m in Sources */,
 			);

@@ -20,7 +20,6 @@
 #import "MMUapRequest.h"
 #import "MMMessageSyncer.h"
 #import "MMLoginService.h"
-#import "MMCardManager.h"
 
 @implementation MMSelectFriendViewController
 @synthesize searchFriendsArray, allFriendsArray, selectedFriends, delegate, selectedMultiFriend;
@@ -246,6 +245,7 @@
 	self.needUidFriends = [NSMutableArray array];
 	self.invalidUidFriends = [NSMutableArray array];
 		
+    //todo
 	for (MMMomoUserInfo *friendInfo in selectedFriends) {
 				
 		if (friendInfo.uid == 0 || friendInfo.uid == mobileNotRegister) {
@@ -257,125 +257,27 @@
 		}
 	}
 	
-    if (self.needUidFriends.count == 0) {
-        
-        NSArray* selectFriendArray = [selectedFriends sortedArrayUsingComparator:^(id obj1, id obj2) {
-            MMMomoUserInfo* friendInfo1 = (MMMomoUserInfo*)obj1;
-            MMMomoUserInfo* friendInfo2 = (MMMomoUserInfo*)obj2;
-            
-            if (friendInfo1.uid < friendInfo2.uid) {
-                return NSOrderedAscending;
-            } else if (friendInfo1.uid == friendInfo2.uid) {
-                return NSOrderedSame;
-            } else {
-                return NSOrderedDescending;
-            }
-        }];
-		
-		if ([(NSObject*)delegate respondsToSelector:@selector(didSelectFriend:)]) {
-			[delegate didSelectFriend:selectFriendArray];
-        }
-		
-        [[self navigationController] popViewControllerAnimated:YES];
-    } else {
-        progressHub.labelText = @"下载好友信息...";
-        progressHub.detailsLabelText = @"";
-        [progressHub show:YES];
-		MMHttpRequestThread* thread = [[MMHttpRequestThread alloc] initWithTarget:self 
-																		 selector:@selector(downFriendUidThread:) 
-																		   object:nil];
-		[backgroundThreads addObject:thread];
-		[thread start];
-		[thread release];
-    }
-}
 
-- (void)downFriendUidThread:(id)object {
-    NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-    
-	assert(self.needUidFriends.count);
-	
-    //下载手机号对应的UID
-    NSString* errorString = nil;
-    NSArray* result = [[MMMessageSyncer shareInstance] getUidsByFriends:self.needUidFriends withErrorString:&errorString];
-    
-    if (!result || result.count == 0) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            progressHub.labelText = @"下载失败";
-            progressHub.detailsLabelText = errorString;
-            [progressHub performSelector:@selector(hideHub) withObject:nil afterDelay:1.5f];
-        });
-    } else if (result.count != needUidFriends.count) {
-        MLOG(@"uid数目不一致");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            progressHub.labelText = @"下载失败";
-            progressHub.detailsLabelText = @"";
-            [progressHub performSelector:@selector(hideHub) withObject:nil afterDelay:1.5f];
-        });
-    } else {
-        BOOL hasZeroUID = NO;
-        for (int i = 0; i < result.count; i++) {
-            
-			NSDictionary *dic = [result objectAtIndex:i];
-            NSInteger uid = [[dic objectForKey:@"user_id"] intValue];
-
-			MMMomoUserInfo *friendInfo = [self.needUidFriends objectAtIndex:i];
-			
-			if (uid == 0) {
-                MLOG(@"下载的uid为0");
-                hasZeroUID = YES;
-				[self.invalidUidFriends addObject:friendInfo];
-				continue;
-            }
-            
-			//修改selectFriends里的friendInfo的uid
-			friendInfo.uid = uid;
-            [[MMMomoUserMgr shareInstance] setUserInfo:friendInfo];			
-			[[MMCardManager instance] insertNumber:friendInfo.registerNumber withUid:friendInfo.uid];
-        }
         
-        if (hasZeroUID) {
-			dispatch_async(dispatch_get_main_queue(), ^{
-				progressHub.labelText = @"下载失败";
-				progressHub.detailsLabelText = @"";
-				[progressHub performSelector:@selector(hideHub) withObject:nil afterDelay:1.5f];
-			});
+    NSArray* selectFriendArray = [selectedFriends sortedArrayUsingComparator:^(id obj1, id obj2) {
+        MMMomoUserInfo* friendInfo1 = (MMMomoUserInfo*)obj1;
+        MMMomoUserInfo* friendInfo2 = (MMMomoUserInfo*)obj2;
+        
+        if (friendInfo1.uid < friendInfo2.uid) {
+            return NSOrderedAscending;
+        } else if (friendInfo1.uid == friendInfo2.uid) {
+            return NSOrderedSame;
         } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                //过滤号码相同的清空
-                NSMutableSet* set = [NSMutableSet set];
-                NSMutableArray* selectFriendArray = [NSMutableArray array];
-                for (MMMomoUserInfo* friendInfo in selectedFriends) {
-                    if ([set containsObject:friendInfo.registerNumber]) {
-                        continue;
-                    }
-                    [selectFriendArray addObject:friendInfo];
-                    [set addObject:friendInfo.registerNumber];
-                }
-                
-                selectFriendArray = (NSMutableArray*)[selectFriendArray sortedArrayUsingComparator:^(id obj1, id obj2) {
-                    MMMomoUserInfo* friendInfo1 = (MMMomoUserInfo*)obj1;
-                    MMMomoUserInfo* friendInfo2 = (MMMomoUserInfo*)obj2;
-                    
-                    if (friendInfo1.uid < friendInfo2.uid) {
-                        return NSOrderedAscending;
-                    } else if (friendInfo1.uid == friendInfo2.uid) {
-                        return NSOrderedSame;
-                    } else {
-                        return NSOrderedDescending;
-                    }
-                }];
-                
-                if ([(NSObject*)delegate respondsToSelector:@selector(didSelectFriend:)]) {
-					[delegate didSelectFriend:selectFriendArray];
-                }
-                
-                [[self navigationController] popViewControllerAnimated:YES];
-            });
+            return NSOrderedDescending;
         }
+    }];
+    
+    if ([(NSObject*)delegate respondsToSelector:@selector(didSelectFriend:)]) {
+        [delegate didSelectFriend:selectFriendArray];
     }
     
-    [pool drain];
+    [[self navigationController] popViewControllerAnimated:YES];
+
 }
 
 - (void)dealloc {

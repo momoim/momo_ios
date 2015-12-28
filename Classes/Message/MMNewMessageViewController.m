@@ -29,7 +29,6 @@
 #import "MMUapRequest.h"
 #import "AlbumPicker/MMAlbumPickerController.h"
 #import "MMSelectImageCollection.h"
-#import "MMCardManager.h"
 #import "FTUtils.h"
 
 @interface MMNewMessageViewController ()

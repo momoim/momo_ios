@@ -58,7 +58,6 @@
 @protocol MMMyMomoDelegate<NSObject>
 @optional
 
-- (void)momoCardDidChange:(MMCard *)fullContact;
 - (void)mobileDidChange:(NSString *)newMobile withPassword:(NSString *)password;
 - (void)weiboDidBinding:(NSDictionary *)weiboDic;
 
