@@ -17,14 +17,22 @@
 
 #if (SERVER == OUTER_SERVER)
     //外网
-    #define ALBUM_URL @"http://v3.api.momo.im/"
-    #define ALBUM_SSL_URL @"https://oauth.momo.im/"
+    #define ALBUM_URL @"http://api.momo.im/"
+
+
+    #define ALBUM_SSL_URL @"https://api.momo.im/"
+
+
+    #define FEED_BACK_GROUP_ID 136
+    #define FEED_BACK_ID 353    //小秘ID
+
+#if 0
+
     #define MQ_PROXY_HOSTNAME "proxy.momo.im"   //MQ
 
     #define MQ_HOSTPORT 5672
     #define MQ_PROXY_PORT 9191
-    #define FEED_BACK_GROUP_ID 136
-    #define FEED_BACK_ID 353    //小秘ID
+
     #define REQUEST_DETAIL_URL @"http://v3.api.momo.im/transfer/apiserver.php"
     #define MQ_HOST "/"
     #define CHANGE_PASSWORD @"http://m.momo.im/t/user/password_change"
@@ -33,7 +41,7 @@
 
     #define YOU_DAO_ID 3388784	//有道翻译 
     #define WEARTHER_91 10643866   //91黄历天气
-
+#endif
 #else
     //外网仿真
     #define ALBUM_URL @"http://api.simulate.momo.im/"

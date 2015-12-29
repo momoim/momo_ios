@@ -22,9 +22,9 @@
 -(int)increaseActiveCount;
 -(int)decreaseActiveCount;
 
-- (NSString*)doLogin:(NSString *)mobile zonecode:(NSString*)zonecode password:(NSString *)password;
+- (NSDictionary*)doLogin:(NSString *)mobile zonecode:(NSString*)zonecode
+            password:(NSString *)password statusCode:(NSInteger*)status;
 - (void)doLogout:(BOOL)sendNotification;
-- (BOOL)isLogin;
 
 - (NSString*)oauthToken;
 - (NSString*)oauthTokenSecret;
@@ -46,7 +46,8 @@
 //未注册用户
 - (NSInteger)getRegisterVerifyCode:(NSString*)mobile zonecode:(NSString*)zonecode;
 - (NSString*)reGetRegisterVerifyCode:(NSString*)mobile zonecode:(NSString*)zonecode;
-- (NSString*)verifyRegister:(NSString*)mobile zonecode:(NSString*)zonecode password:(NSString *)password;
+- (NSDictionary*)verifyRegister:(NSString*)mobile zonecode:(NSString*)zonecode
+                       password:(NSString *)password statusCode:(NSInteger*)status;
 
 
 - (void)getSMSCountFromServer;

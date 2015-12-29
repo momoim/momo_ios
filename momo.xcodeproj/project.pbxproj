@@ -72,6 +72,16 @@
 		6D9BC0E71C31C10A00F0A2AE /* MMFaceTextFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0E41C31C10A00F0A2AE /* MMFaceTextFrame.m */; };
 		6D9BC0E81C31C10A00F0A2AE /* MMFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0E61C31C10A00F0A2AE /* MMFaceView.m */; };
 		6D9BC0EB1C31C13300F0A2AE /* MMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0EA1C31C13300F0A2AE /* MMMapViewController.m */; };
+		6D9BC0EF1C326A3800F0A2AE /* MMLoginViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0EE1C326A3800F0A2AE /* MMLoginViewController.mm */; };
+		6D9BC0F21C326C4900F0A2AE /* MMSelectCountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0F11C326C4900F0A2AE /* MMSelectCountryViewController.m */; };
+		6D9BC0F51C326E3600F0A2AE /* MMFirstInterfaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0F41C326E3600F0A2AE /* MMFirstInterfaceViewController.m */; };
+		6D9BC0FA1C3270E500F0A2AE /* MMPreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0F71C3270E500F0A2AE /* MMPreferenceCell.m */; };
+		6D9BC0FB1C3270E500F0A2AE /* MMPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0F91C3270E500F0A2AE /* MMPreferenceViewController.m */; };
+		6D9BC0FE1C32714E00F0A2AE /* MMRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0FD1C32714E00F0A2AE /* MMRegisterViewController.m */; };
+		6D9BC1011C32716C00F0A2AE /* MMRegisterLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC1001C32716C00F0A2AE /* MMRegisterLoginViewController.m */; };
+		6D9BC1041C3271B800F0A2AE /* MMSetNameAndPassViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC1031C3271B800F0A2AE /* MMSetNameAndPassViewController.mm */; };
+		6D9BC10D1C32DCD700F0A2AE /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC10C1C32DCD700F0A2AE /* Token.m */; };
+		6D9BC1101C32E50C00F0A2AE /* MMMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC10F1C32E50C00F0A2AE /* MMMainTabBarController.m */; };
 		6DA0CD0B138A41FB005B8CDB /* MMRelativeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0CD0A138A41FB005B8CDB /* MMRelativeLayout.m */; };
 		6DA0CD4D138A54FC005B8CDB /* MMLayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0CD4C138A54FC005B8CDB /* MMLayoutParams.m */; };
 		6DAC41511425CBC60064A73A /* MMAboutMeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAC41501425CBC60064A73A /* MMAboutMeChatViewController.m */; };
@@ -357,6 +367,26 @@
 		6D9BC0E61C31C10A00F0A2AE /* MMFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFaceView.m; sourceTree = "<group>"; };
 		6D9BC0E91C31C13300F0A2AE /* MMMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMMapViewController.h; sourceTree = "<group>"; };
 		6D9BC0EA1C31C13300F0A2AE /* MMMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMMapViewController.m; sourceTree = "<group>"; };
+		6D9BC0ED1C326A3800F0A2AE /* MMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMLoginViewController.h; sourceTree = "<group>"; };
+		6D9BC0EE1C326A3800F0A2AE /* MMLoginViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MMLoginViewController.mm; sourceTree = "<group>"; };
+		6D9BC0F01C326C4900F0A2AE /* MMSelectCountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSelectCountryViewController.h; sourceTree = "<group>"; };
+		6D9BC0F11C326C4900F0A2AE /* MMSelectCountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSelectCountryViewController.m; sourceTree = "<group>"; };
+		6D9BC0F31C326E3600F0A2AE /* MMFirstInterfaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFirstInterfaceViewController.h; sourceTree = "<group>"; };
+		6D9BC0F41C326E3600F0A2AE /* MMFirstInterfaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFirstInterfaceViewController.m; sourceTree = "<group>"; };
+		6D9BC0F61C3270E500F0A2AE /* MMPreferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPreferenceCell.h; sourceTree = "<group>"; };
+		6D9BC0F71C3270E500F0A2AE /* MMPreferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPreferenceCell.m; sourceTree = "<group>"; };
+		6D9BC0F81C3270E500F0A2AE /* MMPreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPreferenceViewController.h; sourceTree = "<group>"; };
+		6D9BC0F91C3270E500F0A2AE /* MMPreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPreferenceViewController.m; sourceTree = "<group>"; };
+		6D9BC0FC1C32714E00F0A2AE /* MMRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRegisterViewController.h; sourceTree = "<group>"; };
+		6D9BC0FD1C32714E00F0A2AE /* MMRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRegisterViewController.m; sourceTree = "<group>"; };
+		6D9BC0FF1C32716C00F0A2AE /* MMRegisterLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMRegisterLoginViewController.h; sourceTree = "<group>"; };
+		6D9BC1001C32716C00F0A2AE /* MMRegisterLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMRegisterLoginViewController.m; sourceTree = "<group>"; };
+		6D9BC1021C3271B800F0A2AE /* MMSetNameAndPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSetNameAndPassViewController.h; sourceTree = "<group>"; };
+		6D9BC1031C3271B800F0A2AE /* MMSetNameAndPassViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MMSetNameAndPassViewController.mm; sourceTree = "<group>"; };
+		6D9BC10B1C32DCD700F0A2AE /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
+		6D9BC10C1C32DCD700F0A2AE /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
+		6D9BC10E1C32E50C00F0A2AE /* MMMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMMainTabBarController.h; path = Preference/MMMainTabBarController.h; sourceTree = "<group>"; };
+		6D9BC10F1C32E50C00F0A2AE /* MMMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMMainTabBarController.m; path = Preference/MMMainTabBarController.m; sourceTree = "<group>"; };
 		6DA063E91425ECD50014AA8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6DA063EE1425ED060014AA8E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6DA063F01425ED2D0014AA8E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -1009,8 +1039,26 @@
 		8C52C75E11C0CBF400E74362 /* Preference */ = {
 			isa = PBXGroup;
 			children = (
+				6D9BC0F61C3270E500F0A2AE /* MMPreferenceCell.h */,
+				6D9BC0F71C3270E500F0A2AE /* MMPreferenceCell.m */,
+				6D9BC0F81C3270E500F0A2AE /* MMPreferenceViewController.h */,
+				6D9BC0F91C3270E500F0A2AE /* MMPreferenceViewController.m */,
+				6D9BC0F31C326E3600F0A2AE /* MMFirstInterfaceViewController.h */,
+				6D9BC0F41C326E3600F0A2AE /* MMFirstInterfaceViewController.m */,
+				6D9BC0ED1C326A3800F0A2AE /* MMLoginViewController.h */,
+				6D9BC0EE1C326A3800F0A2AE /* MMLoginViewController.mm */,
+				6D9BC0FF1C32716C00F0A2AE /* MMRegisterLoginViewController.h */,
+				6D9BC1001C32716C00F0A2AE /* MMRegisterLoginViewController.m */,
+				6D9BC0FC1C32714E00F0A2AE /* MMRegisterViewController.h */,
+				6D9BC0FD1C32714E00F0A2AE /* MMRegisterViewController.m */,
+				6D9BC1021C3271B800F0A2AE /* MMSetNameAndPassViewController.h */,
+				6D9BC1031C3271B800F0A2AE /* MMSetNameAndPassViewController.mm */,
+				6D9BC0F01C326C4900F0A2AE /* MMSelectCountryViewController.h */,
+				6D9BC0F11C326C4900F0A2AE /* MMSelectCountryViewController.m */,
 				6D8CB43B13F4D3C100610917 /* MMPreference.h */,
 				6D8CB43C13F4D3C100610917 /* MMPreference.m */,
+				6D9BC10E1C32E50C00F0A2AE /* MMMainTabBarController.h */,
+				6D9BC10F1C32E50C00F0A2AE /* MMMainTabBarController.m */,
 			);
 			name = Preference;
 			sourceTree = "<group>";
@@ -1097,6 +1145,8 @@
 		8C95E95C12DDA52C008C5640 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				6D9BC10B1C32DCD700F0A2AE /* Token.h */,
+				6D9BC10C1C32DCD700F0A2AE /* Token.m */,
 				8C95E9C912DDA756008C5640 /* DbStruct.h */,
 				8C95E9CA12DDA756008C5640 /* DbStruct.m */,
 				8C95E9CB12DDA756008C5640 /* DefineDictionary.h */,
@@ -1481,6 +1531,7 @@
 				04B28E96131B928F00C02A92 /* IrregularShapedButton.m in Sources */,
 				04B39B9F131C95170049157A /* MMDraftViewController.m in Sources */,
 				04B39BA2131C955B0049157A /* MMDraftMgr.m in Sources */,
+				6D9BC0EF1C326A3800F0A2AE /* MMLoginViewController.mm in Sources */,
 				04B39BAF131CBDCE0049157A /* MMDraftCell.m in Sources */,
 				8C8C05771325F6D400B2F40F /* MMEditDraftViewController.m in Sources */,
 				9CA55F4313319F5500069D3A /* MMDbProfile.m in Sources */,
@@ -1504,7 +1555,9 @@
 				6D83FBD9138F931700432C9E /* md5.c in Sources */,
 				6D83FBDA138F931700432C9E /* sha.c in Sources */,
 				8CA3CC2613A0635500363822 /* UIImageCrossDevice.m in Sources */,
+				6D9BC0F51C326E3600F0A2AE /* MMFirstInterfaceViewController.m in Sources */,
 				8CA3CC4B13A096B800363822 /* MMGlobalCategory.m in Sources */,
+				6D9BC0FA1C3270E500F0A2AE /* MMPreferenceCell.m in Sources */,
 				8CA4301A13A7371D003E1290 /* MMFriendMessageDataSource.m in Sources */,
 				6D0C4A4E13A8AB460050B1D3 /* MMViewXmlParser.m in Sources */,
 				6D87EAF313A9A72F001F232C /* MMAbsoluteLayout.m in Sources */,
@@ -1521,10 +1574,13 @@
 				6D85712B13E65BB20021CBC3 /* MMAboutMeManager.m in Sources */,
 				8CA9E19913EA6AAB004DC25A /* MMMomoUserMgr.m in Sources */,
 				8CA9E1A713EA6B5D004DC25A /* MMMomoUser.m in Sources */,
+				6D9BC1041C3271B800F0A2AE /* MMSetNameAndPassViewController.mm in Sources */,
 				6D8CB43D13F4D3C100610917 /* MMPreference.m in Sources */,
 				8CABBDB013FA3AE000DE43EE /* MMSoundMgr.m in Sources */,
 				6D89429A13FD33F900B693B3 /* PlausibleDatabase.m in Sources */,
 				6D89429E13FD33F900B693B3 /* PLDatabaseMigrationManager.m in Sources */,
+				6D9BC1101C32E50C00F0A2AE /* MMMainTabBarController.m in Sources */,
+				6D9BC0FB1C3270E500F0A2AE /* MMPreferenceViewController.m in Sources */,
 				6D8942A213FD33F900B693B3 /* PLSqliteConnectionProvider.m in Sources */,
 				6D8942A613FD33F900B693B3 /* PLSqliteDatabase.m in Sources */,
 				6D8942AA13FD33F900B693B3 /* PLSqliteMigrationVersionManager.m in Sources */,
@@ -1534,6 +1590,7 @@
 				8CA82B8E140F5FE0002850E4 /* MMHidePortionTextView.m in Sources */,
 				8CA9A50B142199E000B8376A /* BCBlockBorder.m in Sources */,
 				8CA9A50C142199E000B8376A /* BCImageNode.m in Sources */,
+				6D9BC0FE1C32714E00F0A2AE /* MMRegisterViewController.m in Sources */,
 				8CA9A50D142199E000B8376A /* BCNode.m in Sources */,
 				8CA9A50E142199E000B8376A /* BCTextFrame.m in Sources */,
 				8CA9A50F142199E000B8376A /* BCTextLine.m in Sources */,
@@ -1549,6 +1606,7 @@
 				8C8EF835146BB7C200533ACC /* MTStatusBarOverlay.m in Sources */,
 				8CAF1697147B9C5500D9CD9A /* SSTextView.m in Sources */,
 				8CB2F4BB148DF4E700E4B67C /* FTAnimation+UIView.m in Sources */,
+				6D9BC0F21C326C4900F0A2AE /* MMSelectCountryViewController.m in Sources */,
 				8CB2F4BC148DF4E700E4B67C /* FTAnimationManager.m in Sources */,
 				8CB2F4BD148DF4E700E4B67C /* FTUtils+NSObject.m in Sources */,
 				8CB2F4BE148DF4E700E4B67C /* FTUtils+UIGestureRecognizer.m in Sources */,
@@ -1559,6 +1617,7 @@
 				8CAB475B151B1899006232C5 /* NSObject+SBJson.m in Sources */,
 				8CAB475C151B1899006232C5 /* SBJsonParser.m in Sources */,
 				8CAB475D151B1899006232C5 /* SBJsonStreamParser.m in Sources */,
+				6D9BC10D1C32DCD700F0A2AE /* Token.m in Sources */,
 				8CAB475E151B189A006232C5 /* SBJsonStreamParserAccumulator.m in Sources */,
 				8CAB475F151B189A006232C5 /* SBJsonStreamParserAdapter.m in Sources */,
 				8CAB4760151B189A006232C5 /* SBJsonStreamParserState.m in Sources */,
@@ -1573,6 +1632,7 @@
 				F065D432151C61710068C489 /* MMAssetsViewController.m in Sources */,
 				F065D433151C61710068C489 /* MMAsset.m in Sources */,
 				F065D434151C61710068C489 /* MMAssetCell.m in Sources */,
+				6D9BC1011C32716C00F0A2AE /* MMRegisterLoginViewController.m in Sources */,
 				F065D435151C61710068C489 /* MMSelectImage.m in Sources */,
 				F065D436151C61710068C489 /* MMSelectImageCollection.m in Sources */,
 				8CAB9FF6151C1B0C00524C46 /* NSObject+MKBlockAdditions.m in Sources */,

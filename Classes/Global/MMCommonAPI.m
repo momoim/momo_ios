@@ -461,6 +461,7 @@
 	}];
 }
 
+#if 0
 + (NSString*)getDetailURL:(NSUInteger)typeId applicationId:(uint64_t)appId {
 	NSString *token = [[MMLoginService shareInstance] oauthToken];
 	NSString *secret = [[MMLoginService shareInstance] oauthTokenSecret];
@@ -484,6 +485,11 @@
 	return [NSString stringWithFormat:@"%@?&oauth_token=%@&oauth_token_secret=%@&timestamp=%llu&class=statuses&method=show_text&source=2&id=%@", 
 			REQUEST_DETAIL_URL, token, secret, (long long)time(NULL), statusId];
 }
+
+#endif
+
+
+
 #ifndef MOMO_UNITTEST
 + (MMWebViewController*)openUrl:(NSString*)url {
     UITabBarController* tabBarController = [MMGlobalPara getTabBarController];
@@ -815,10 +821,6 @@
     return kCode;
 }
 
-
-+ (BOOL)isRobot:(NSInteger)uid {
-    return (uid == YOU_DAO_ID || uid == WEARTHER_91);
-}
 
 + (NSArray*)sortIntArray:(NSArray *)array {
     return  [array sortedArrayUsingComparator:^(id obj1, id obj2) {

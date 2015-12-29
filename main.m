@@ -5,6 +5,7 @@
 #import "MMPreference.h"
 #import "MMAboutMeManager.h"
 #import "MMHttpDownloadMgr.h"
+#import "MMDraftMgr.h"
 
 int main(int argc, char *argv[]) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
@@ -27,6 +28,7 @@ int main(int argc, char *argv[]) {
 	[MMUapRequest shareInstance];
     [MMAboutMeManager shareInstance];
     [MMHttpDownloadMgr shareInstance];
+    [MMDraftMgr shareInstance];
 
 	int retVal = UIApplicationMain(argc, argv, nil, @"MMAppDelegate");
     

@@ -43,9 +43,13 @@ typedef enum {
     }
     
 	if ((self = [self init])) {
-		CFStringEncoding cfenc = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding);
-		CFStringRef cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc);
-		const char *enc = CFStringGetCStringPtr(cfencstr, 0);
+        //bug ios7 enc == null
+//		CFStringEncoding cfenc = CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding);
+//		CFStringRef cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc);
+//		const char *enc = CFStringGetCStringPtr(cfencstr, 0);
+
+        const char *enc = "utf-8";
+        
 		// let's set our xml doc to doc because we don't want to free node
 		// (which we didn't alloc) but we want to free a doc we alloced
 		doc = node = (xmlNode *)htmlReadDoc((xmlChar *)[html UTF8String],

@@ -54,7 +54,7 @@
 		messageInfo.recentComment = [[MMUIComment instance] getComment:messageInfo.recentCommentId ownerId:[[MMLoginService shareInstance] getLoginUserId]];
 	}
 	
-    //	[self downMessage:MMDownInitial];
+    [self downMessage:MMDownInitial];
 }
 
 - (void)reset {
@@ -580,12 +580,14 @@ NSInteger messageInfoCompare(MMMessageInfo* messageInfo1, MMMessageInfo* message
 		} else {
 			MMMessageInfo* messageInfo = [self.messageArray objectAtIndex:(indexPath.row - uploadMessageArray.count)];
             cell.delegate = messageCellDelegate;
+            NSLog(@"message text:%@", messageInfo.text);
 			[cell setMessageInfo:messageInfo];
 		}
 		
 	} else {
 		MMMessageInfo* messageInfo = [self.messageArray objectAtIndex:indexPath.row];
         cell.delegate = messageCellDelegate;
+        NSLog(@"message text:%@", messageInfo.text);
 		[cell setMessageInfo:messageInfo];
 	}
 	

@@ -75,9 +75,6 @@
         NSNotificationCenter* notificationCenter = [NSNotificationCenter defaultCenter];
         [notificationCenter addObserver:self selector:@selector(onMomoUserInfoChanged:) name:kMMUserInfoChanged object:nil];
         
-        [notificationCenter addObserver:self selector:@selector(onLogout) name:kMMUserLogout object:nil];
-        [notificationCenter addObserver:self selector:@selector(onLogin) name:kMMUserLogin object:nil];
-        
         [notificationCenter addObserver:self selector:@selector(draftStatusChanged:) name:kMMDraftStatusChanged object:nil];
         [notificationCenter addObserver:self selector:@selector(uploadMessageWillStart:) name:kMMDraftStartUpload object:nil];
         [notificationCenter addObserver:self selector:@selector(removeUploadingDraft:) name:kMMDraftRemoved object:nil];
@@ -154,6 +151,9 @@
 	[self.view bringSubviewToFront:progressHub];
 	self.progressHub.labelText = @"加载中...";
     
+ 
+    [self initDataSource];
+    
 }
 
 - (void)createTableViews:(BOOL)firstCreate {
@@ -206,13 +206,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-	if (![[MMLoginService shareInstance] isLogin]) {
-		return;
-	}
-	
 	if (!viewFirstAppear) {
 		viewFirstAppear = YES;
-		[self initDataSource];
+  
 	}
 }
 
@@ -269,7 +265,7 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+//    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     
 	if (object == [MMUploadQueue shareInstance] && [keyPath isEqualToString:@"currentUploadProgress"]) {
 		[self performSelectorOnMainThread:@selector(reloadUploadVisiableCell) withObject:nil waitUntilDone:NO];
@@ -322,14 +318,6 @@
     
     [titleButton_ setTitle:@"全部分享" forState:UIControlStateNormal];
     titleButton_.frame = [MMCommonAPI properRectForButton:titleButton_ maxSize:CGSizeMake(160, 29)];
-}
-
-- (void)onLogin {
-    [self refreshAboutMeNumberLabel];
-}
-
-- (void)onLogout {
-	[self reset];
 }
 
 - (void)startLoading {
@@ -796,6 +784,7 @@
 	newMessageInfo.ownerId = [[MMLoginService shareInstance] getLoginUserId];
 	newMessageInfo.uid = newMessageInfo.ownerId;
 	newMessageInfo.text = [draftInfo textWithoutUid];
+    NSLog(@"text:%@, %@", newMessageInfo.text, draftInfo.text);
 	newMessageInfo.groupId = draftInfo.groupId;
 	newMessageInfo.groupName = draftInfo.groupName;
 	newMessageInfo.createDate = draftInfo.createDate;
