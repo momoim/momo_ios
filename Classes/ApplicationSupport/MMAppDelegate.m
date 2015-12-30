@@ -12,9 +12,8 @@
 #import "MMAvatarMgr.h"
 #import "MMPreference.h"
 #import "MMGlobalCategory.h"
-#import "MMFirstInterfaceViewController.h"
 #import "MMPreferenceViewController.h"
-
+#import "MMLoginViewController.h"
 #import "MMMainTabBarController.h"
 #import "Token.h"
 
@@ -63,25 +62,6 @@
 }
 
 - (void) initApplication {
-	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    window.backgroundColor = [UIColor whiteColor];
-
-    if ([Token instance].uid == 0 ) {
-        MMFirstInterfaceViewController *controller = [[[MMFirstInterfaceViewController alloc] init] autorelease];
-        controller.hidesBottomBarWhenPushed = YES;
-        
-        MMNavigationController *root = [[[MMNavigationController alloc] initWithRootViewController:controller] autorelease];
-        
-        window.rootViewController = root;
-        [window makeKeyAndVisible];
-		
-	} else {
-        self.tabBarController_ = [[[MMMainTabBarController alloc] init] autorelease];
-        
-        [MMGlobalPara setTabBarController:tabBarController_];
-        window.rootViewController = self.tabBarController_;
-        [window makeKeyAndVisible];
-	}
 }
 
 #pragma mark App Life Cycle
@@ -96,7 +76,26 @@
 	[MMCommonAPI checkDirectoryExist];	//保证数据文件所在文件夹创建
 	
 	self.window.backgroundColor = TABLE_BACKGROUNDCOLOR;
-    [self initApplication];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    window.backgroundColor = [UIColor whiteColor];
+    
+    if ([Token instance].uid == 0 ) {
+        MMLoginViewController *controller = [[[MMLoginViewController alloc] init] autorelease];
+        controller.hidesBottomBarWhenPushed = YES;
+        
+        MMNavigationController *root = [[[MMNavigationController alloc] initWithRootViewController:controller] autorelease];
+        
+        window.rootViewController = root;
+        [window makeKeyAndVisible];
+        
+    } else {
+        self.tabBarController_ = [[[MMMainTabBarController alloc] init] autorelease];
+        
+        [MMGlobalPara setTabBarController:tabBarController_];
+        window.rootViewController = self.tabBarController_;
+        [window makeKeyAndVisible];
+    }
 
     return YES;
 }

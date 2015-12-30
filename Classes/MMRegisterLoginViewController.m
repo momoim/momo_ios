@@ -106,7 +106,7 @@
 	imageView.image =[MMThemeMgr imageNamed:@"inputbox.png"];
 	[self.view addSubview:imageView];
     password_ = [[[UITextField alloc] initWithFrame: CGRectMake(49, 108, 222, 40)] autorelease];
-    password_.placeholder = @"初始密码";
+    password_.placeholder = @"验证码";
     
     password_.delegate = self;
     password_.secureTextEntry = YES;
@@ -123,11 +123,11 @@
     password_.returnKeyType = UIReturnKeyDone;
     [self.view addSubview:password_];
     
-	UIButton* button = [[[UIButton alloc]initWithFrame:CGRectMake(40, 158, 120, 40)] autorelease];
+	UIButton* button = [[[UIButton alloc]initWithFrame:CGRectMake(40, 158, 240, 40)] autorelease];
 	button.backgroundColor = [UIColor clearColor];    
     [button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn.png"] forState:UIControlStateNormal];
 	[button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn_press.png"] forState:UIControlStateHighlighted];
-    [button setTitle:@"注册" forState:UIControlStateNormal];
+    [button setTitle:@"下一步" forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:16];
 	[button setTitleColor: [UIColor colorWithRed:(CGFloat)0x00/0xFF green:(CGFloat)0x56/0xFF blue:(CGFloat)0x70/0xFF alpha:1.0] forState:UIControlStateNormal];
 	[button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
@@ -135,11 +135,11 @@
 	[self.view addSubview:button];
     
     if ([telNumber_ length] > 0) {
-        button = [[[UIButton alloc]initWithFrame:CGRectMake(168, 158, 109, 40)] autorelease];
+        button = [[[UIButton alloc]initWithFrame:CGRectMake(40, 250, 240, 40)] autorelease];
         button.backgroundColor = [UIColor clearColor];
         [button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn.png"] forState:UIControlStateNormal];
         [button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn_press.png"] forState:UIControlStateHighlighted];
-        [button setTitle:@"重获密码" forState:UIControlStateNormal];
+        [button setTitle:@"重获验证码" forState:UIControlStateNormal];
         button.titleLabel.font = [UIFont systemFontOfSize:16];
         [button setTitleColor: [UIColor colorWithRed:(CGFloat)0x00/0xFF green:(CGFloat)0x56/0xFF blue:(CGFloat)0x70/0xFF alpha:1.0] forState:UIControlStateNormal];
         [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];

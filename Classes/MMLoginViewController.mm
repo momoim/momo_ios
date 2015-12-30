@@ -22,6 +22,7 @@
 #import "Token.h"
 #import "MMAppDelegate.h"
 #import "MMMainTabBarController.h"
+#import "MMRegisterViewController.h"
 
 @implementation MMLoginViewController
 @synthesize telNumber   = telNumber_;
@@ -63,7 +64,7 @@
 	[itemButton setImage:image forState:UIControlStateHighlighted];
 	[itemButton setBackgroundImage:[MMThemeMgr imageNamed:@"common_topbar_ic_press.png"] forState:UIControlStateHighlighted];
 	[itemButton addTarget:self action:@selector(actionLeft:) forControlEvents:UIControlEventTouchUpInside];	
-	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:itemButton] autorelease];
+//	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:itemButton] autorelease];
     
 	//一个透明的button 点击收回键盘用 放在这。有个先后顺序，后面的控件就可以正常使用  
 	removeKeyButton_ = [[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 320, 400)] autorelease];
@@ -124,8 +125,8 @@
     password_.returnKeyType = UIReturnKeyDone;
     [self.view addSubview:password_];
     
-	UIButton* button = [[[UIButton alloc]initWithFrame:CGRectMake(40, 158, 120, 40)] autorelease];
-	button.backgroundColor = [UIColor clearColor];    
+	UIButton* button = [[[UIButton alloc]initWithFrame:CGRectMake(40, 158, 240, 40)] autorelease];
+	button.backgroundColor = [UIColor clearColor];
     [button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn.png"] forState:UIControlStateNormal];
 	[button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn_press.png"] forState:UIControlStateHighlighted];
     [button setTitle:@"立即登录" forState:UIControlStateNormal];
@@ -135,28 +136,17 @@
     [button addTarget:self action:@selector(actionLogin:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:button];
 
-    if ([telNumber_ length] > 0) {
-        button = [[[UIButton alloc]initWithFrame:CGRectMake(168, 158, 109, 40)] autorelease];
-        button.backgroundColor = [UIColor clearColor];
-        [button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn.png"] forState:UIControlStateNormal];
-        [button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn_press.png"] forState:UIControlStateHighlighted];
-        [button setTitle:@"重获密码" forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:16];
-        [button setTitleColor: [UIColor colorWithRed:(CGFloat)0x00/0xFF green:(CGFloat)0x56/0xFF blue:(CGFloat)0x70/0xFF alpha:1.0] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-        [button addTarget:self action:@selector(actionRegister:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:button];
-    } else {
-        button.frame = CGRectMake(40, 158, 240, 40);
-    }
-	
-    UIButton* forgetNo = [[[UIButton alloc]initWithFrame:CGRectMake(200, 210, 80, 40)] autorelease];
-    forgetNo.backgroundColor = [UIColor clearColor];    
-    [forgetNo setTitle:@"忘记密码？" forState:UIControlStateNormal];
-    forgetNo.titleLabel.font = [UIFont systemFontOfSize:14];
-    [forgetNo setTitleColor: [UIColor colorWithRed:(CGFloat)0x00/0xFF green:(CGFloat)0x56/0xFF blue:(CGFloat)0x70/0xFF alpha:1.0] forState:UIControlStateNormal];
-    [forgetNo setTitleColor: [UIColor colorWithRed:(CGFloat)0x00/0xFF green:(CGFloat)0x56/0xFF blue:(CGFloat)0x70/0xFF alpha:1.0] forState:UIControlStateHighlighted];
-    [self.view addSubview:forgetNo];
+    
+    UIButton* registerButton = [[[UIButton alloc]initWithFrame:CGRectMake(120, 400, 80, 40)] autorelease];
+    registerButton.backgroundColor = [UIColor clearColor];
+    [registerButton setTitle:@"注册" forState:UIControlStateNormal];
+    registerButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    registerButton.titleLabel.font = [UIFont systemFontOfSize:14];
+    [registerButton setTitleColor: [UIColor colorWithRed:(CGFloat)0x00/0xFF green:(CGFloat)0x56/0xFF blue:(CGFloat)0x70/0xFF alpha:1.0] forState:UIControlStateNormal];
+    [registerButton setTitleColor: [UIColor colorWithRed:(CGFloat)0x00/0xFF green:(CGFloat)0x56/0xFF blue:(CGFloat)0x70/0xFF alpha:1.0] forState:UIControlStateHighlighted];
+    [registerButton addTarget:self action:@selector(actionRegister:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:registerButton];
+    
 }
 
 -(void)actionInputShrink:(id)sender {
@@ -254,6 +244,11 @@
 
         });
     });
+}
+
+- (void)actionRegister:(id)sender {
+    MMRegisterViewController *ctrl = [[[MMRegisterViewController alloc] init] autorelease];
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 - (void)viewDidUnload {

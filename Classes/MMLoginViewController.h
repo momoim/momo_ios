@@ -37,8 +37,6 @@
 
 - (void)actionLogin:(id)sender;
 
-- (void)afterLogin:(NSString*)result; 
-
 - (void)actionSelectCountry:(id)sender;
 
 @end

@@ -18,11 +18,11 @@
 #import "MMCommonAPI.h"
 #import "MMPreference.h"
 #import "MMMomoUserMgr.h"
-#import "MMFirstInterfaceViewController.h"
 #import "DefineEnum.h"
 #import "MMWebViewController.h"
 #import "MMGlobalPara.h"
 #import "UIAlertView+MKBlockAdditions.h"
+#import "MMAppDelegate.h"
 
 static char MMTableViewRowsInSectionIsLogin[] = {3,3,4,1};
 
@@ -281,10 +281,16 @@ static char MMTableViewRowsInSectionIsLogin[] = {3,3,4,1};
     [[MMLoginService shareInstance] doLogout:YES];
     [[MMPreference shareInstance] reset]; //配置项重置
     
-    MMFirstInterfaceViewController *controller = [[MMFirstInterfaceViewController alloc] init];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    MMLoginViewController *controller = [[MMLoginViewController alloc] init];
     controller.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:controller animated:YES];
-    [controller release]; 
+    UINavigationController *navigationCtrl = [[[UINavigationController alloc] initWithRootViewController:controller] autorelease];
+    
+    MMAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    appDelegate.window.rootViewController = navigationCtrl;
+    [controller release];
+    
+    [appDelegate.window makeKeyAndVisible];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

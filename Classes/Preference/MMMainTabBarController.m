@@ -20,7 +20,6 @@
 #import "MMAvatarMgr.h"
 #import "MMPreference.h"
 #import "MMGlobalCategory.h"
-#import "MMFirstInterfaceViewController.h"
 #import "MMPreferenceViewController.h"
 #import "MMDraftMgr.h"
 

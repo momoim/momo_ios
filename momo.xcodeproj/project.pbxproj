@@ -74,7 +74,6 @@
 		6D9BC0EB1C31C13300F0A2AE /* MMMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0EA1C31C13300F0A2AE /* MMMapViewController.m */; };
 		6D9BC0EF1C326A3800F0A2AE /* MMLoginViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0EE1C326A3800F0A2AE /* MMLoginViewController.mm */; };
 		6D9BC0F21C326C4900F0A2AE /* MMSelectCountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0F11C326C4900F0A2AE /* MMSelectCountryViewController.m */; };
-		6D9BC0F51C326E3600F0A2AE /* MMFirstInterfaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0F41C326E3600F0A2AE /* MMFirstInterfaceViewController.m */; };
 		6D9BC0FA1C3270E500F0A2AE /* MMPreferenceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0F71C3270E500F0A2AE /* MMPreferenceCell.m */; };
 		6D9BC0FB1C3270E500F0A2AE /* MMPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0F91C3270E500F0A2AE /* MMPreferenceViewController.m */; };
 		6D9BC0FE1C32714E00F0A2AE /* MMRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC0FD1C32714E00F0A2AE /* MMRegisterViewController.m */; };
@@ -371,8 +370,6 @@
 		6D9BC0EE1C326A3800F0A2AE /* MMLoginViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MMLoginViewController.mm; sourceTree = "<group>"; };
 		6D9BC0F01C326C4900F0A2AE /* MMSelectCountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMSelectCountryViewController.h; sourceTree = "<group>"; };
 		6D9BC0F11C326C4900F0A2AE /* MMSelectCountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMSelectCountryViewController.m; sourceTree = "<group>"; };
-		6D9BC0F31C326E3600F0A2AE /* MMFirstInterfaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFirstInterfaceViewController.h; sourceTree = "<group>"; };
-		6D9BC0F41C326E3600F0A2AE /* MMFirstInterfaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFirstInterfaceViewController.m; sourceTree = "<group>"; };
 		6D9BC0F61C3270E500F0A2AE /* MMPreferenceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPreferenceCell.h; sourceTree = "<group>"; };
 		6D9BC0F71C3270E500F0A2AE /* MMPreferenceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPreferenceCell.m; sourceTree = "<group>"; };
 		6D9BC0F81C3270E500F0A2AE /* MMPreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPreferenceViewController.h; sourceTree = "<group>"; };
@@ -1043,8 +1040,6 @@
 				6D9BC0F71C3270E500F0A2AE /* MMPreferenceCell.m */,
 				6D9BC0F81C3270E500F0A2AE /* MMPreferenceViewController.h */,
 				6D9BC0F91C3270E500F0A2AE /* MMPreferenceViewController.m */,
-				6D9BC0F31C326E3600F0A2AE /* MMFirstInterfaceViewController.h */,
-				6D9BC0F41C326E3600F0A2AE /* MMFirstInterfaceViewController.m */,
 				6D9BC0ED1C326A3800F0A2AE /* MMLoginViewController.h */,
 				6D9BC0EE1C326A3800F0A2AE /* MMLoginViewController.mm */,
 				6D9BC0FF1C32716C00F0A2AE /* MMRegisterLoginViewController.h */,
@@ -1555,7 +1550,6 @@
 				6D83FBD9138F931700432C9E /* md5.c in Sources */,
 				6D83FBDA138F931700432C9E /* sha.c in Sources */,
 				8CA3CC2613A0635500363822 /* UIImageCrossDevice.m in Sources */,
-				6D9BC0F51C326E3600F0A2AE /* MMFirstInterfaceViewController.m in Sources */,
 				8CA3CC4B13A096B800363822 /* MMGlobalCategory.m in Sources */,
 				6D9BC0FA1C3270E500F0A2AE /* MMPreferenceCell.m in Sources */,
 				8CA4301A13A7371D003E1290 /* MMFriendMessageDataSource.m in Sources */,

@@ -95,7 +95,7 @@
 	button.backgroundColor = [UIColor clearColor];    
     [button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn.png"] forState:UIControlStateNormal];
 	[button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn_press.png"] forState:UIControlStateHighlighted];
-    [button setTitle:@"获取密码" forState:UIControlStateNormal];
+    [button setTitle:@"获取验证码" forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:16];
 	[button setTitleColor: [UIColor colorWithRed:(CGFloat)0x00/0xFF green:(CGFloat)0x56/0xFF blue:(CGFloat)0x70/0xFF alpha:1.0] forState:UIControlStateNormal];
 	[button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
