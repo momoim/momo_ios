@@ -25,7 +25,7 @@
 #define kMMShowMessagePhotoType @"MMShowMessagePhotoType"
 
 const NSString *kMMStartView = @"StartView";
-const NSString *kMMAddressBookViewController	= @"MMAddressBookViewControlle";
+const NSString *kMMAddressBookViewController	= @"MMAddressBookViewController";
 const NSString *kMMAboutMeViewController        = @"MMAboutMeViewController";
 const NSString *kMMMessageViewController		= @"MMMessageViewController";
 const NSString *kMMPreferenceViewController		= @"MMPreferenceViewController";

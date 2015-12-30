@@ -580,14 +580,12 @@ NSInteger messageInfoCompare(MMMessageInfo* messageInfo1, MMMessageInfo* message
 		} else {
 			MMMessageInfo* messageInfo = [self.messageArray objectAtIndex:(indexPath.row - uploadMessageArray.count)];
             cell.delegate = messageCellDelegate;
-            NSLog(@"message text:%@", messageInfo.text);
 			[cell setMessageInfo:messageInfo];
 		}
 		
 	} else {
 		MMMessageInfo* messageInfo = [self.messageArray objectAtIndex:indexPath.row];
         cell.delegate = messageCellDelegate;
-        NSLog(@"message text:%@", messageInfo.text);
 		[cell setMessageInfo:messageInfo];
 	}
 	

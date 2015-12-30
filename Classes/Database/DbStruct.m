@@ -150,7 +150,7 @@
 
 @implementation MMMomoUserInfo
 @synthesize uid, realName, avatarImageUrl, contactId, registerNumber;
-@synthesize isSelected;
+@synthesize isSelected, namePhonetic;
 
 - (id)init {
     self = [super init];

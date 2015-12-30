@@ -337,6 +337,8 @@ static MMUploadQueue* instance = nil;
 }
 
 - (void)requestFailed:(ASIHTTPRequest*)request {
+    NSLog(@"resp status:%zd", [request responseStatusCode]);
+    NSLog(@"resp:%@", [request responseObject]);
 	switch (uploadStatus) {
 		case UQ_MESSAGE: {
             [self onUploadMessageFailed:request];

@@ -26,11 +26,8 @@
             password:(NSString *)password statusCode:(NSInteger*)status;
 - (void)doLogout:(BOOL)sendNotification;
 
-- (NSString*)oauthToken;
-- (NSString*)oauthTokenSecret;
-- (NSString*)queueName;
-- (NSInteger)userStatus;
-- (BOOL)isProbationer;
+- (NSDictionary*)refreshAccessToken:(NSString*)refreshToken statusCode:(NSInteger*)status;
+
 - (NSString*)getLoginNumber;
 - (NSInteger)getLoginUserId;
 - (NSString*)getLoginRealName;
@@ -40,8 +37,8 @@
 - (void)setBindToWeibo:(BOOL)bind;
 - (BOOL)bindToKaixin;
 - (void)setBindToKaixin:(BOOL)bind;
-- (NSInteger)smsCount;
-- (void)setSmsCount:(NSInteger)count;
+
+
 
 //未注册用户
 - (NSInteger)getRegisterVerifyCode:(NSString*)mobile zonecode:(NSString*)zonecode;
@@ -50,7 +47,10 @@
                        password:(NSString *)password statusCode:(NSInteger*)status;
 
 
-- (void)getSMSCountFromServer;
+//好友
+- (BOOL)addFriend:(int64_t)friendID;
+- (NSArray*)getFreinds:(NSInteger*)status;
+- (NSArray*)getPotentialFriends:(NSArray*)mobiles statusCode:(NSInteger*)status;
 
 //是否在MQ服务器注册推送
 - (BOOL)registerPushNotification:(NSString*)deviceToken;

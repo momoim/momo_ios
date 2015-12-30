@@ -507,20 +507,6 @@
     }
     
 	NSURL* url = [NSURL URLWithString:fullUrl];
-
-//    OAuthToken oauthToken;
-//	NSString *token = [MMGlobalData getPreferenceforKey:@"oauth_token"];
-//	NSString *secret = [MMGlobalData getPreferenceforKey:@"oauth_token_secret"];
-//	if (token && secret) {
-//		strcpy(oauthToken.token, [token UTF8String]);
-//		strcpy(oauthToken.secret, [secret UTF8String]);
-//		char* params = generate_authorization_params("POST", [[url absoluteString] UTF8String],
-//													 (long long)time(NULL), 0, &oauthToken);
-//        fullUrl = [fullUrl stringByAppendingFormat:@"%s", params]; 
-//        url = [NSURL URLWithString:fullUrl];
-//		free(params);
-//	}
-    
 	ASIHTTPRequest* request = [self requestWithURL:url];
 	request.timeOutSeconds = HTTP_REQUEST_TIME_OUT_SECONDS;
     

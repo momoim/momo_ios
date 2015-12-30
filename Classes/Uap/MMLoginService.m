@@ -123,35 +123,6 @@
     [MMGlobalData savePreference];
 }
 
-- (NSInteger)smsCount {
-    NSNumber* bindValue = [MMGlobalData getPreferenceforKey:@"sms_count"];
-    if (!bindValue) {
-        return 0;
-    }
-    return [bindValue intValue];
-}
-
-- (void)setSmsCount:(NSInteger)count {
-    [MMGlobalData setPreference:[NSNumber numberWithInt:count] forKey:@"sms_count"];
-    [MMGlobalData savePreference];
-}
-
-- (void)getSMSCountFromServer {
-    NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-    
-    NSString* strSource = [NSString stringWithFormat:@"user/sms_count.json"];
-	NSDictionary *dicRet = [MMUapRequest getSync:strSource compress:YES];
-	NSInteger retCode = [[dicRet valueForKey:@"status"] intValue];
-    if (retCode == 200 && [dicRet isKindOfClass:[NSDictionary class]]) {
-        NSInteger count = [[dicRet objectForKey:@"count"] intValue];
-        if (count > 0) {
-            self.smsCount = count;
-        }
-    }
-    
-    [pool release];
-}
-
 - (NSString*)filterZoneCode:(NSString*)zonecode {
     if ([zonecode hasPrefix:@"+"]) {
         [zonecode substringFromIndex:1];
@@ -224,13 +195,25 @@
 
     
     [[MMAvatarMgr shareInstance] reset];
-    
 
-    
-    self.smsCount = 0;
 	self.avatarImageURL = nil;
 }
 
+- (NSDictionary*)refreshAccessToken:(NSString*)refreshToken statusCode:(NSInteger*)status {
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:refreshToken forKey:@"refresh_token"];
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithPath:@"auth/refresh_token.json" withObject:dict usingSSL:NO];
+    [request startSynchronous];
+    
+    NSInteger statusCode = [request responseStatusCode];
+    NSDictionary *resp = [request responseObject];
+    if (status) {
+        *status = statusCode;
+    }
+    
+    return resp;
+}
 
 
 #pragma mark 注册
@@ -239,21 +222,14 @@
     [dictionary setObject:mobile forKey:@"mobile"];
     [dictionary setObject:[self filterZoneCode:zonecode] forKey:@"zone_code"];
 
-    NSString *path = [NSString stringWithFormat:@"auth/verify_code?zone_code=%@&mobile=%@", zonecode, mobile];
-    
-    NSDictionary *response = [MMUapRequest getSync:path compress:NO];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithPath:@"auth/verify_code.json" withObject:dictionary usingSSL:NO];
+    [request startSynchronous];
+    NSInteger statusCode = [request responseStatusCode];
+
+    NSDictionary *response = [request responseObject];
     
     NSLog(@"verify code:%@", response);
-    NSInteger statusCode = [[response objectForKey:STATUS] integerValue];
-    
-    if (statusCode != 200 ) {
-        NSString *error = [response objectForKey:@"error"];
-        if (statusCode == 0) {
-            return 0;
-        }
-        return [self errorCodeFromErrorString:error];
-    }
-    return 200;
+    return  statusCode;
 }
 
 - (NSString*)reGetRegisterVerifyCode:(NSString*)mobile zonecode:(NSString*)zonecode {
@@ -287,6 +263,46 @@
     
     *status = statusCode;
     return response;
+}
+
+#pragma mark 好友相关
+- (BOOL)addFriend:(int64_t)friendID {
+    NSNumber *n = [NSNumber numberWithLongLong:friendID];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:n forKey:@"user_id"];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithPath:@"friend/add.json" withObject:dict];
+    [request startSynchronous];
+    NSInteger statusCode = [request responseStatusCode];
+    return statusCode == 200;
+}
+
+- (NSArray*)getFreinds:(NSInteger*)status {
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithPath:@"friend/index.json?page=1&pagesize=200"];
+    [request startSynchronous];
+    NSInteger statusCode = [request responseStatusCode];
+    NSDictionary *resp = [request responseObject];
+    
+    if (status != NULL) {
+        *status = statusCode;
+    }
+    if (statusCode == 200) {
+        return [resp objectForKey:@"data"];
+    } else {
+        return nil;
+    }
+}
+
+- (NSArray*)getPotentialFriends:(NSArray*)mobiles statusCode:(NSInteger*)status {
+    NSDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:mobiles forKey:@"mobiles"];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithPath:@"user/search.json" withObject:dict];
+    [request startSynchronous];
+    NSInteger statusCode = [request responseStatusCode];
+    NSArray *resp = [request responseObject];
+    
+    if (status != NULL) {
+        *status = statusCode;
+    }
+    return resp;
 }
 
 #pragma mark 推送相关

@@ -80,7 +80,11 @@
 		6D9BC1011C32716C00F0A2AE /* MMRegisterLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC1001C32716C00F0A2AE /* MMRegisterLoginViewController.m */; };
 		6D9BC1041C3271B800F0A2AE /* MMSetNameAndPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC1031C3271B800F0A2AE /* MMSetNameAndPassViewController.m */; };
 		6D9BC10D1C32DCD700F0A2AE /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC10C1C32DCD700F0A2AE /* Token.m */; };
-		6D9BC1101C32E50C00F0A2AE /* MMMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC10F1C32E50C00F0A2AE /* MMMainTabBarController.m */; };
+		6D9BC1101C32E50C00F0A2AE /* MMMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC10F1C32E50C00F0A2AE /* MMMainTabBarController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6D9BC1151C33CD9D00F0A2AE /* MMFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC1141C33CD9D00F0A2AE /* MMFriendViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6D9BC1181C33CF9300F0A2AE /* MMFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC1171C33CF9300F0A2AE /* MMFriendTableViewCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6D9BC11B1C33DD0D00F0A2AE /* ContactDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC11A1C33DD0D00F0A2AE /* ContactDB.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6D9BC1221C343B4A00F0A2AE /* MMFriendDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BC1211C343B4A00F0A2AE /* MMFriendDB.m */; };
 		6DA0CD0B138A41FB005B8CDB /* MMRelativeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0CD0A138A41FB005B8CDB /* MMRelativeLayout.m */; };
 		6DA0CD4D138A54FC005B8CDB /* MMLayoutParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA0CD4C138A54FC005B8CDB /* MMLayoutParams.m */; };
 		6DAC41511425CBC60064A73A /* MMAboutMeChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAC41501425CBC60064A73A /* MMAboutMeChatViewController.m */; };
@@ -384,6 +388,14 @@
 		6D9BC10C1C32DCD700F0A2AE /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
 		6D9BC10E1C32E50C00F0A2AE /* MMMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMMainTabBarController.h; path = Preference/MMMainTabBarController.h; sourceTree = "<group>"; };
 		6D9BC10F1C32E50C00F0A2AE /* MMMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMMainTabBarController.m; path = Preference/MMMainTabBarController.m; sourceTree = "<group>"; };
+		6D9BC1131C33CD9D00F0A2AE /* MMFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFriendViewController.h; sourceTree = "<group>"; };
+		6D9BC1141C33CD9D00F0A2AE /* MMFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFriendViewController.m; sourceTree = "<group>"; };
+		6D9BC1161C33CF9300F0A2AE /* MMFriendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMFriendTableViewCell.h; sourceTree = "<group>"; };
+		6D9BC1171C33CF9300F0A2AE /* MMFriendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMFriendTableViewCell.m; sourceTree = "<group>"; };
+		6D9BC1191C33DD0D00F0A2AE /* ContactDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDB.h; sourceTree = "<group>"; };
+		6D9BC11A1C33DD0D00F0A2AE /* ContactDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDB.m; sourceTree = "<group>"; };
+		6D9BC1201C343B4A00F0A2AE /* MMFriendDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMFriendDB.h; path = Database/MMFriendDB.h; sourceTree = "<group>"; };
+		6D9BC1211C343B4A00F0A2AE /* MMFriendDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMFriendDB.m; path = Database/MMFriendDB.m; sourceTree = "<group>"; };
 		6DA063E91425ECD50014AA8E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6DA063EE1425ED060014AA8E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6DA063F01425ED2D0014AA8E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -1133,6 +1145,10 @@
 				8CAA797C144038F30026B028 /* MMScrollPageViewController.m */,
 				8CB6751F15C1118400A0CC39 /* MMSelectGroupView.h */,
 				8CB6752015C1118400A0CC39 /* MMSelectGroupView.m */,
+				6D9BC1131C33CD9D00F0A2AE /* MMFriendViewController.h */,
+				6D9BC1141C33CD9D00F0A2AE /* MMFriendViewController.m */,
+				6D9BC1161C33CF9300F0A2AE /* MMFriendTableViewCell.h */,
+				6D9BC1171C33CF9300F0A2AE /* MMFriendTableViewCell.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -1140,6 +1156,8 @@
 		8C95E95C12DDA52C008C5640 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				6D9BC1191C33DD0D00F0A2AE /* ContactDB.h */,
+				6D9BC11A1C33DD0D00F0A2AE /* ContactDB.m */,
 				6D9BC10B1C32DCD700F0A2AE /* Token.h */,
 				6D9BC10C1C32DCD700F0A2AE /* Token.m */,
 				8C95E9C912DDA756008C5640 /* DbStruct.h */,
@@ -1166,6 +1184,8 @@
 				6D85712A13E65BB20021CBC3 /* MMAboutMeManager.m */,
 				8CA9E1A513EA6B5D004DC25A /* MMMomoUser.h */,
 				8CA9E1A613EA6B5D004DC25A /* MMMomoUser.m */,
+				6D9BC1201C343B4A00F0A2AE /* MMFriendDB.h */,
+				6D9BC1211C343B4A00F0A2AE /* MMFriendDB.m */,
 				04B3144712E03B3F00B1324F /* MMUIComment.h */,
 				04B3144812E03B3F00B1324F /* MMUIComment.m */,
 				04B3144B12E03B3F00B1324F /* MMUIMessage.h */,
@@ -1500,6 +1520,7 @@
 				04B3141C12E0393000B1324F /* MMMessageDataSource.m in Sources */,
 				04B3141D12E0393000B1324F /* MMMessageSyncer.m in Sources */,
 				04B3141E12E0393000B1324F /* MMMessageViewController.m in Sources */,
+				6D9BC1181C33CF9300F0A2AE /* MMFriendTableViewCell.m in Sources */,
 				04B3141F12E0393000B1324F /* MMNewMessageViewController.m in Sources */,
 				04B3142212E0396900B1324F /* RegexKitLite.m in Sources */,
 				04B3144D12E03B3F00B1324F /* MMUIComment.m in Sources */,
@@ -1537,6 +1558,7 @@
 				8C9BBEE51380F877001B62B1 /* MBProgressHUD.m in Sources */,
 				6D9BC0E81C31C10A00F0A2AE /* MMFaceView.m in Sources */,
 				8C9BBEF91380F8D3001B62B1 /* MWPhoto.m in Sources */,
+				6D9BC11B1C33DD0D00F0A2AE /* ContactDB.m in Sources */,
 				8C9BBEFA1380F8D3001B62B1 /* MWPhotoBrowser.m in Sources */,
 				8C9BBEFB1380F8D3001B62B1 /* UIImage+Decompress.m in Sources */,
 				8C9BBEFC1380F8D3001B62B1 /* UIImageViewTap.m in Sources */,
@@ -1592,6 +1614,7 @@
 				8CA9A511142199E000B8376A /* BCTextView.m in Sources */,
 				6DAC41511425CBC60064A73A /* MMAboutMeChatViewController.m in Sources */,
 				6D2DA5FE142F47CB00B8E631 /* MMAboutMeRootCell.m in Sources */,
+				6D9BC1221C343B4A00F0A2AE /* MMFriendDB.m in Sources */,
 				6D2DA5FF142F47CE00B8E631 /* MMAboutMeDragView.m in Sources */,
 				8CA9253814301803003D606E /* MMUserMessageViewController.m in Sources */,
 				6D12F96D1432F25D002DBAF8 /* wavreader.c in Sources */,
@@ -1612,6 +1635,7 @@
 				8CAB475C151B1899006232C5 /* SBJsonParser.m in Sources */,
 				8CAB475D151B1899006232C5 /* SBJsonStreamParser.m in Sources */,
 				6D9BC10D1C32DCD700F0A2AE /* Token.m in Sources */,
+				6D9BC1151C33CD9D00F0A2AE /* MMFriendViewController.m in Sources */,
 				8CAB475E151B189A006232C5 /* SBJsonStreamParserAccumulator.m in Sources */,
 				8CAB475F151B189A006232C5 /* SBJsonStreamParserAdapter.m in Sources */,
 				8CAB4760151B189A006232C5 /* SBJsonStreamParserState.m in Sources */,

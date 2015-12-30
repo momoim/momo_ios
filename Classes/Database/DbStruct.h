@@ -190,6 +190,7 @@
 @property (nonatomic, copy) NSString *registerNumber;
 
 @property (nonatomic) BOOL isSelected;  //用于选择联系人页面的选择状态
+@property (nonatomic, copy) NSString *namePhonetic;
 
 - (id)initWithUserId:(NSUInteger)userId 
 			realName:(NSString*)name

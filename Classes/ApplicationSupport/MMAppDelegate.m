@@ -90,6 +90,7 @@
         [window makeKeyAndVisible];
         
     } else {
+        NSLog(@"login user id:%zd", [Token instance].uid);
         self.tabBarController_ = [[[MMMainTabBarController alloc] init] autorelease];
         
         [MMGlobalPara setTabBarController:tabBarController_];

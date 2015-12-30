@@ -44,12 +44,13 @@ void closeThreadDBConnenction(void* parameter) {
     // 如果文件已经存在, 则返回路径
     NSString *documentsDirectory = [MMGlobalPara documentDirectory];
     NSString *dbPath = [documentsDirectory stringByAppendingPathComponent:DB_FILENAME];
+    NSLog(@"db path:%@", dbPath);
     if([fileManager fileExistsAtPath:dbPath])
         return dbPath;
 
     // 如果文件不存在, 拷贝一份, 返回路径
     NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DB_FILENAME];
-	NSLog(@"%@ \n %@", dbPath, defaultDBPath);
+	NSLog(@"copy momo.db:%@ \n %@", dbPath, defaultDBPath);
     if( [fileManager copyItemAtPath:defaultDBPath toPath:dbPath error:&error])
         return dbPath;
     

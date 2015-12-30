@@ -20,129 +20,94 @@
 #import "MMUapRequest.h"
 #import "MMMessageSyncer.h"
 #import "MMLoginService.h"
+#import "MMFriendDB.h"
+
+@interface MMSelectFriendViewController()
+
+
+@end
 
 @implementation MMSelectFriendViewController
-@synthesize searchFriendsArray, allFriendsArray, selectedFriends, delegate, selectedMultiFriend;
-@synthesize needUidFriends, invalidUidFriends; 
+@synthesize  delegate, selectedMultiFriend;
 
-- (void)sortByIndex:(NSArray *)sortArray {
-    
-	[friendDictionary_ removeAllObjects];
-	[friendNameIndexArray_ removeAllObjects];
-    
-    
-	for (MMMomoUserInfo *friendInfo in sortArray) {
-		
-		NSString* name_phonetic = [MMPhoneticAbbr getPinyin:friendInfo.realName];
-		NSString *firstLetter = [MMCommonAPI getStringFirstLetter:name_phonetic];
-        
-		NSMutableArray *existingArray;
-		
-		if ((existingArray = [friendDictionary_ valueForKey:firstLetter])) {
-			[existingArray addObject:friendInfo];
-		} 
-		else {
-			NSMutableArray *tempArray = [[NSMutableArray alloc]init];
-			[tempArray addObject:friendInfo];
-			[friendDictionary_ setObject:tempArray forKey:firstLetter];
-			[tempArray release];
-		}
-		
-	}
-    
-	[friendNameIndexArray_ setArray:
-	 [[friendDictionary_ allKeys] sortedArrayUsingSelector:@selector(compareWithOther:)]];
-    
-        //for sort		
-	for (NSInteger i = 0; i < [friendNameIndexArray_ count]; i++) {
-		NSString *strkey = [friendNameIndexArray_ objectAtIndex:i];
-        
-		NSArray *array = [friendDictionary_ objectForKey:strkey];	
-		array = [MMCommonAPI sortArrayByAbbr:array key:@"realName"];
-        [friendDictionary_ setObject:array forKey:strkey];
-	}	
-}
 
-- (void)sortByIndexForFilter:(NSArray *)sortArray {
-	
-	[filterFriendDictionary_ removeAllObjects];
-	[filterFriendNameIndexArray_ removeAllObjects];
+- (NSArray*)sortByPhonetic:(NSArray *)sortArray {
+    for (MMMomoUserInfo *friendInfo in sortArray) {
+        NSString* name_phonetic = [MMPhoneticAbbr getPinyin:friendInfo.realName];
+        friendInfo.namePhonetic = name_phonetic;
+    }
     
-    
-	for (MMMomoUserInfo *friendInfo in sortArray) {
-		
-		NSString* name_phonetic = [MMPhoneticAbbr getPinyin:friendInfo.realName];
-		NSString *firstLetter = [MMCommonAPI getStringFirstLetter:name_phonetic];
-		
-		NSMutableArray *existingArray;
-		
-		if ((existingArray = [filterFriendDictionary_ valueForKey:firstLetter])) {
-			[existingArray addObject:friendInfo];
-		} 
-		else {
-			NSMutableArray *tempArray = [[NSMutableArray alloc]init];
-			[tempArray addObject:friendInfo];
-			[filterFriendDictionary_ setObject:tempArray forKey:firstLetter];
-			[tempArray release];
-		}
-		
-	}
-	
-	[filterFriendNameIndexArray_ setArray:
-	 [[filterFriendDictionary_ allKeys] sortedArrayUsingSelector:@selector(compareWithOther:)]];
-	
-        //for sort		
-	for (NSInteger i = 0; i < [filterFriendNameIndexArray_ count]; i++) {
-		NSString *strkey = [filterFriendNameIndexArray_ objectAtIndex:i];
-		
-		NSArray *array = [filterFriendDictionary_ objectForKey:strkey];	
-		array = [MMCommonAPI sortArrayByAbbr:array key:@"realName"];
-        [filterFriendDictionary_ setObject:array forKey:strkey];
-	}	
+    return [sortArray sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        MMMomoUserInfo *f1 = obj1;
+        MMMomoUserInfo *f2 = obj2;
+        
+        return [f1.namePhonetic compare:f2.namePhonetic];
+    }];
 }
 
 
 - (void)getFriendList {
     [[MMLoginService shareInstance] increaseActiveCount];
     
-    
-    //todo
-//    NSArray* contactArray = [[MMContactManager instance] getSimpleContactList:nil];
-//	dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-//        NSArray *tmpArr = [[MMContactManager instance] getFriendListNeedName:YES needPhone:YES inArray:contactArray];        
-//        
-//            //把与UI相关的数据操作放在主线程
-//		dispatch_async(dispatch_get_main_queue(), ^{
-//            self.allFriendsArray = tmpArr;
-//            currentArray = allFriendsArray;
-//            [self sortByIndex:currentArray];
-//            [friendsTable reloadData];
-//            
-//            [progressHub hide:NO];
-//		});
-//		
-//        [[MMLoginService shareInstance] decreaseActiveCount];
-//	});
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        int now = (int)time(NULL);
+        int ts = [MMFriendDB instance].updateTimestamp;
+        
+        NSArray *friends = nil;
+        if (now - ts > 60*60) {
+            NSInteger statusCode = 0;
+            friends = [[MMLoginService shareInstance] getFreinds:&statusCode];
+            if (statusCode != 200) {
+                NSLog(@"get friends fail");
+                return;
+            }
+            NSLog(@"friends:%@", friends);
+            [[MMFriendDB instance] setFriends:friends];
+            [MMFriendDB instance].updateTimestamp = now;
+
+        } else {
+            friends = [[MMFriendDB instance] getFriends];
+        }
+        
+        NSMutableArray *tmp = [NSMutableArray array];
+        for (NSDictionary *dict in friends) {
+            MMMomoUserInfo *user = [[[MMMomoUserInfo alloc] init] autorelease];
+            user.uid = [[dict objectForKey:@"id"] longLongValue];
+            user.avatarImageUrl = [dict objectForKey:@"avatar"];
+            user.realName = [dict objectForKey:@"name"];
+            [tmp addObject:user];
+        }
+        
+        [[MMLoginService shareInstance] decreaseActiveCount];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.allFriendsArray = tmp;
+            self.currentArray = [self sortByPhonetic:self.allFriendsArray];
+            [friendsTable reloadData];
+            [progressHub hide:NO];
+        });
+    });
 }
 
 - (id)init {
     self = [super init];
     if (self) {
         selectedMultiFriend = YES;
-		selectedFriends = [[NSMutableArray alloc] init];
-		
-		friendDictionary_		= [[NSMutableDictionary alloc] init];
-        friendNameIndexArray_	= [[NSMutableArray alloc] init];
-		
-		filterFriendDictionary_ = [[NSMutableDictionary alloc] init];
-		filterFriendNameIndexArray_ = [[NSMutableArray alloc] init];
-		
-        backgroundThreads = [[NSMutableArray alloc] init];
-		
-		selectCount = 0;
+        self.currentArray = [NSMutableArray array];
+        self.allFriendsArray = [NSMutableArray array];
     }
     return self;
 }
+
+
+- (void)dealloc {
+    self.allFriendsArray = nil;
+    self.currentArray = nil;
+    [searchCtr release];
+    searchCtr = nil;
+    
+    [super dealloc];
+}
+
 
 - (void)loadView {
 	[super loadView];
@@ -196,17 +161,7 @@
 
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    
-    searchCtr = nil;
-	friendsTable = nil;
-}
-
 - (void)actionLeft:(id)sender {
-    [MMCommonAPI waitHTTPThreadsQuit:backgroundThreads];
-    
-
     if ([(NSObject*)delegate respondsToSelector:@selector(didSelectFriend:)]) {
 		[delegate didSelectFriend:[NSArray array]];
 	}
@@ -218,48 +173,22 @@
     return toInterfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
-- (BOOL)getSelectedFriends {
-	
-	[selectedFriends removeAllObjects];
-	for (MMMomoUserInfo *friendInfo in self.allFriendsArray) {
-		if (friendInfo.isSelected) {
-			[selectedFriends addObject:friendInfo];
-		}
-	}
-	
-	if (selectedFriends.count) {
-		return YES;
-	} else {
-		return NO;
-	}
-
-}
-
 - (void)actionRight:(id)sender {
-	
-	if (![self getSelectedFriends]) {
+    
+    NSMutableArray *array = [NSMutableArray array];
+    for (MMMomoUserInfo *friendInfo in self.allFriendsArray) {
+        if (friendInfo.isSelected) {
+            [array addObject:friendInfo];
+        }
+    }
+    
+	if (array.count == 0) {
 		[MMCommonAPI alert:@"您还未选择好友名片,请选择"];
 		return;
 	}
-		
-	self.needUidFriends = [NSMutableArray array];
-	self.invalidUidFriends = [NSMutableArray array];
-		
-    //todo
-	for (MMMomoUserInfo *friendInfo in selectedFriends) {
-				
-		if (friendInfo.uid == 0 || friendInfo.uid == mobileNotRegister) {
-			[self.needUidFriends addObject:friendInfo];
-		} else if (friendInfo.uid == mobileInvalid) {
-			[self.invalidUidFriends addObject:friendInfo];
-		} else {
-			//do nothing
-		}
-	}
-	
 
-        
-    NSArray* selectFriendArray = [selectedFriends sortedArrayUsingComparator:^(id obj1, id obj2) {
+    
+    NSArray* selectFriendArray = [array sortedArrayUsingComparator:^(id obj1, id obj2) {
         MMMomoUserInfo* friendInfo1 = (MMMomoUserInfo*)obj1;
         MMMomoUserInfo* friendInfo2 = (MMMomoUserInfo*)obj2;
         
@@ -280,31 +209,6 @@
 
 }
 
-- (void)dealloc {
-    [MMCommonAPI waitHTTPThreadsQuit:backgroundThreads];
-    [backgroundThreads release];
-    
-    
-	self.searchFriendsArray = nil;
-	self.allFriendsArray = nil;
-	[searchCtr release];
-    searchCtr = nil;
-	[selectedFriends release];
-	
-	[friendDictionary_ release];
-	[friendNameIndexArray_ release];
-
-    backgroundThreads = nil;
-	
-	[filterFriendDictionary_ release];
-	[filterFriendNameIndexArray_ release];
-	
-	self.invalidUidFriends = nil;
-	self.needUidFriends = nil;
-	
-    [super dealloc];
-}
-
 #pragma mark -
 #pragma mark UISearchDisplayDelegate
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)hsearchBar {
@@ -323,43 +227,7 @@
 }
 
 
-- (void)filterContentForSearchText:(NSString *)searchString {
-	
-	if (searchString.length == 0) {
-		if (searchFriendsArray) {
-			[searchFriendsArray release];
-			searchFriendsArray = nil;
-		}
-		currentArray = allFriendsArray;
-	} else {
-		//todo 
-//		self.searchFriendsArray = [[MMContact instance] searchFriend:searchString];
-//        
-//        if (selectedMultiFriend) {
-//            NSMutableArray* tmpArray = [NSMutableArray arrayWithArray:searchFriendsArray];
-//            for (int i = 0; i < tmpArray.count; i++) {
-//				
-//				MMMomoUserInfo *friendInfo = [tmpArray objectAtIndex:i];
-//                if ([allFriendsArray indexOfObject:friendInfo] == NSNotFound) {
-//                    [tmpArray removeObject:friendInfo];
-//                    i--;
-//                }
-//            }
-//            self.searchFriendsArray = tmpArray;
-//        }
-//        
-//		if (searchFriendsArray) {
-//			currentArray = searchFriendsArray;
-//		} else {
-//			currentArray = nil;
-//		}
-	}
-	
-	[self sortByIndexForFilter:currentArray];
-}
-
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-	[self filterContentForSearchText:searchString];
     // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
@@ -367,7 +235,7 @@
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
 	NSString *searchText = [self.searchDisplayController.searchBar text];
-	[self filterContentForSearchText:searchText];
+//	[self filterContentForSearchText:searchText];
     
     // Return YES to cause the search result table view to be reloaded.
     return YES;
@@ -384,27 +252,7 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-
-	UIView *imageView = nil;
-	imageView = [[[UIImageView alloc] initWithImage:[MMThemeMgr imageNamed:@"mainbar_shadow.png"]]autorelease];
-	imageView.backgroundColor = [UIColor clearColor];
-	
-	UILabel *letter = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 200, 20)];
-	letter.backgroundColor = [UIColor clearColor];
-	letter.font = [UIFont fontWithName:@"Helvetica" size:16];
-	letter.textColor = NOMAL_COLOR;
-	
-	if (tableView == self.searchDisplayController.searchResultsTableView) {
-		letter.text = [filterFriendNameIndexArray_ objectAtIndex:section];
-	} else {
-		letter.text = [friendNameIndexArray_ objectAtIndex:section];
-	}
-
-	
-	[imageView addSubview:letter];
-	[letter release];
-    
-    return imageView;
+    return nil;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -414,18 +262,7 @@
 	UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
 	UIImageView* checkImageView = (UIImageView*)[cell.contentView viewWithTag:3];
 	
-	NSString *strkey = nil;
-	NSArray *array = nil;                  
-	if (tableView == self.searchDisplayController.searchResultsTableView) {
-		strkey = [filterFriendNameIndexArray_ objectAtIndex:indexPath.section];
-		array = [filterFriendDictionary_ objectForKey:strkey];
-	} else {
-		strkey = [friendNameIndexArray_ objectAtIndex:indexPath.section];
-		array = [friendDictionary_ objectForKey:strkey];
-	}	
-		
-	
-	MMMomoUserInfo* selectedFriendInfo = [array objectAtIndex:indexPath.row];
+	MMMomoUserInfo* selectedFriendInfo = [self.currentArray objectAtIndex:indexPath.row];
 	
 	selectedFriendInfo.isSelected = !selectedFriendInfo.isSelected;
 	if (selectedFriendInfo.isSelected) {
@@ -450,67 +287,20 @@
 }
 
 #pragma mark UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	if (tableView == self.searchDisplayController.searchResultsTableView) {
-		return [filterFriendNameIndexArray_ count];
-	} else {
-		return [friendNameIndexArray_ count];
-	}
 
-}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	
-	NSString *strkey = nil;
-	NSArray *array = nil;
-	if (tableView == self.searchDisplayController.searchResultsTableView) {
-		strkey = [filterFriendNameIndexArray_ objectAtIndex:section];
-		array = [filterFriendDictionary_ objectForKey:strkey];
-	} else {
-		strkey = [friendNameIndexArray_ objectAtIndex:section];
-		array = [friendDictionary_ objectForKey:strkey];
-	}	
-	
-	return [array count];
+    return self.currentArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
-	if (title == UITableViewIndexSearch) 
-	{
-		[tableView scrollRectToVisible:tableView.tableHeaderView.frame animated:NO];
-		return -1;
-	}
-	return index-1;
+    return  1;
 }
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-	
-	NSMutableArray *indices = [NSMutableArray arrayWithObject:UITableViewIndexSearch];
-	if (tableView == self.searchDisplayController.searchResultsTableView) {
-		return [indices arrayByAddingObjectsFromArray:filterFriendNameIndexArray_];
-	} else {
-		return [indices arrayByAddingObjectsFromArray:friendNameIndexArray_];
-	}
-	
-	
-	return nil; 
-	
-}
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-	NSString *strkey = nil;
-	NSArray *array = nil;
-	if (tableView == self.searchDisplayController.searchResultsTableView) {
-		strkey = [filterFriendNameIndexArray_ objectAtIndex:indexPath.section];
-		array = [filterFriendDictionary_ objectForKey:strkey];
-	} else {
-		strkey = [friendNameIndexArray_ objectAtIndex:indexPath.section];
-		array = [friendDictionary_ objectForKey:strkey];
-	}	
-	
-
-	MMMomoUserInfo* friendInfo = [array objectAtIndex:indexPath.row];
+	MMMomoUserInfo* friendInfo = [self.currentArray objectAtIndex:indexPath.row];
 	
 	UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MMSelectFriendCell"];
 	if (cell == nil) {

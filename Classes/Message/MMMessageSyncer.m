@@ -310,6 +310,8 @@ static MMMessageSyncer* s_instance = nil;
 	}
 	
 	NSArray* messageDictList = [dicObject valueForKey:@"data"];
+    NSLog(@"message list:%@", messageDictList);
+    
 	NSMutableArray* retArray = [NSMutableArray array];
 	if (messageDictList && messageDictList.count > 0) {
 		for (NSDictionary* messageDict in messageDictList) {
