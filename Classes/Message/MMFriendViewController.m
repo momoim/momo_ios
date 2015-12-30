@@ -113,18 +113,18 @@ alpha:(a)]
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSMutableArray *array = [NSMutableArray array];
                 for (NSDictionary *obj in potentialFriends) {
-                    NSNumber *uid = [obj objectForKey:@"id"];
+                    int64_t uid = [[obj objectForKey:@"id"] longLongValue];
                     
                     NSInteger pos = [friends indexOfObjectPassingTest:^BOOL(NSDictionary *o, NSUInteger idx, BOOL * _Nonnull stop) {
-                        NSNumber *n = [o objectForKey:@"id"];
-                        if ([n isEqual:uid]) {
+                        int64_t n = [[o objectForKey:@"id"] longLongValue];
+                        if (uid == n) {
                             *stop = YES;
                             return YES;
                         }
                         return NO;
                     }];
                     
-                    if (pos == NSNotFound && [uid longLongValue] != [Token instance].uid) {
+                    if (pos == NSNotFound && uid != [Token instance].uid) {
                         [array addObject:obj];
                     }
                 }
@@ -169,7 +169,7 @@ alpha:(a)]
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.potentialFriends count];
+    return [self.potentialFriends count] + self.friends.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -180,9 +180,19 @@ alpha:(a)]
         [cell.button addTarget:self action:@selector(actionAddFriend:) forControlEvents:UIControlEventTouchUpInside];
     }
     
-    NSDictionary *obj = [self.potentialFriends objectAtIndex:indexPath.row];
-    cell.textLabel.text = [obj objectForKey:@"name"];
-    cell.button.tag = indexPath.row;
+    if (indexPath.row < self.potentialFriends.count) {
+        NSDictionary *obj = [self.potentialFriends objectAtIndex:indexPath.row];
+        cell.textLabel.text = [obj objectForKey:@"name"];
+        cell.button.tag = indexPath.row;
+        cell.button.enabled = YES;
+        [cell.button setTitle:@"加为好友" forState:UIControlStateNormal];
+    } else {
+        NSDictionary *obj = [self.friends objectAtIndex:indexPath.row - self.potentialFriends.count];
+        cell.textLabel.text = [obj objectForKey:@"name"];
+        cell.button.tag = indexPath.row;
+        cell.button.enabled = NO;
+        [cell.button setTitle:@"已是好友" forState:UIControlStateNormal];
+    }
     return cell;
 }
 
@@ -192,7 +202,9 @@ alpha:(a)]
 
 - (void)actionAddFriend:(UIButton*)sender {
     NSLog(@"button tag:%zd", sender.tag);
-    
+    if (sender.tag >= self.potentialFriends.count) {
+        return;
+    }
     
     UIWindow *foreWindow  = [[UIApplication sharedApplication] keyWindow];
     UIView *backView = [[UIView alloc] initWithFrame:foreWindow.frame];
