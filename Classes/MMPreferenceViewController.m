@@ -24,13 +24,8 @@
 #import "UIAlertView+MKBlockAdditions.h"
 #import "MMAppDelegate.h"
 
-static char MMTableViewRowsInSectionIsLogin[] = {3,3,4,1};
+static char MMTableViewRowsInSectionIsLogin[] = {2,1};
 
-@interface MMPreferenceViewController (MQExpired) 
-
-- (void)onOauthExpired;
-
-@end
 
 @implementation MMPreferenceViewController
 
@@ -51,11 +46,6 @@ static char MMTableViewRowsInSectionIsLogin[] = {3,3,4,1};
                                         options:NSKeyValueObservingOptionNew 
                                         context:nil];
 
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                 selector:@selector(onOauthExpired) 
-                                                     name:kMMMQOauthExpired 
-                                                   object:nil];
 	}
 	
 	return self;
@@ -67,12 +57,6 @@ static char MMTableViewRowsInSectionIsLogin[] = {3,3,4,1};
     [[MMDraftMgr shareInstance] removeObserver:self forKeyPath:@"draftArray"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
-}
-
-- (void)viewDidUnload {
-	[table_ release];
-	table_ = nil;
-    [super viewDidUnload];
 }
 
 -(void) onUserLogin:(NSNotification*)notification {
@@ -152,80 +136,13 @@ static char MMTableViewRowsInSectionIsLogin[] = {3,3,4,1};
 					cell.titleLabel.text = [NSString stringWithFormat:@" 草稿箱  (%d)", dataSource.draftArray.count];
                 }
                     break;
-				case 2:	
-					cell.cellSwitch.hidden = YES;
-					cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-					cell.titleLabel.text = @" 修改密码"; 
-					break;	
+
 				default:
 					break;
 			}					
 		}			
 			break;
-		case 1:
-		{
-			switch (indexPath.row) {
-				case 0:{
-					cell.cellSwitch.hidden = NO;
-                    cell.cellSwitch.enabled = NO;
-					cell.cellSwitch.tag = kMMSwitchSync;					
-					MMPreference *preference= [MMPreference shareInstance];
-					if ([preference syncMode] == kSyncModeRemote) {
-						cell.cellSwitch.on = YES;
-					}else {
-						cell.cellSwitch.on = NO;
-					}
-					cell.accessoryType = UITableViewCellAccessoryNone;
-					cell.titleLabel.text = @" 自动同步";
-				}
-					break;
-				case 1: {
-                    cell.cellSwitch.hidden = YES;
-					cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-					cell.titleLabel.text = @" 时光机"; 
-                    
-				}
-					break;	
-				case 2: {
-                    cell.cellSwitch.hidden = YES;
-					cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-					cell.titleLabel.text = @" 提醒设置"; 
-                }				
-					break;
-				default:
-					break;
-			}		
-		}
-			break;		
-		case 2:
-		{
-			switch (indexPath.row) {
-                case 0:
-					cell.cellSwitch.hidden = YES;
-					cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-					cell.titleLabel.text = @" 喜欢MOMO, 给MOMO评分";
-					break;
-				case 1:
-					cell.cellSwitch.hidden = YES;
-					cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-					cell.titleLabel.text = @" 用户反馈";
-					break;
-				case 2:
-					cell.cellSwitch.hidden = YES;
-					cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-					cell.titleLabel.text = @" 关于MOMO";
-					break;
-				case 3:
-					cell.cellSwitch.hidden = YES;
-					cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-					cell.titleLabel.text = @" 帮助";
-					break;	
-				default:
-					break;
-			}		
-		}
-			break;
-		case 3:
+        case 1:
 		{
 			switch (indexPath.row) {
 				case 0:
@@ -237,7 +154,7 @@ static char MMTableViewRowsInSectionIsLogin[] = {3,3,4,1};
 						tableViewCell = [[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"offCell"]autorelease];
 						tableViewCell.accessoryType = UITableViewCellAccessoryNone;
 						tableViewCell.textLabel.backgroundColor = [UIColor clearColor];
-						tableViewCell.textLabel.textAlignment = UITextAlignmentCenter;
+						tableViewCell.textLabel.textAlignment = NSTextAlignmentCenter;
 						tableViewCell.textLabel.font = [UIFont systemFontOfSize:16.0f];
 						
 						UIImageView *backgroundView = nil;
@@ -296,127 +213,49 @@ static char MMTableViewRowsInSectionIsLogin[] = {3,3,4,1};
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES]; 
 	
-	switch (indexPath.section) {
-		case 0:{
-			switch (indexPath.row) {
-				case 0: {
-				
-				}
-					break;
+    switch (indexPath.section) {
+        case 0:{
+            switch (indexPath.row) {
+                case 0: {
+                    
+                }
+                    break;
                 case 1: {
                     MMDraftViewController* draftController = [[[MMDraftViewController alloc] init] autorelease];
                     draftController.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:draftController animated:YES];
-				}
+                }
                     break;
-				case 2: {
-
-				}
-					break;
-			}
-		}			
-			break;
-		case 1:
-		{
-			switch (indexPath.row) {
-				case 0: {
-//                    MMSyncPreferenceViewController* viewController = [[[MMSyncPreferenceViewController alloc] init] autorelease];
-//                    viewController.hidesBottomBarWhenPushed = YES;
-//                    [self.navigationController pushViewController:viewController animated:YES];
-				}
-					break;
-				case 1: {
-  
-                }
-					break;
-				case 2: {
-
-                }
-					break;
-				case 3:
-					//do nothing
-					break;
-
-				default:
-					break;
-			}
-		}
-			break;		
-		case 2:
-		{
-			switch (indexPath.row) {
-                case 0:
-				{
-                NSString* iTunesLink = @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=455867457";
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
-				}
-					break;
-				case 1:
-				{
-                MMMomoUserInfo* friendInfo = [[[MMMomoUserInfo alloc] initWithUserId:FEED_BACK_ID realName:@"小秘" avatarImageUrl:nil] autorelease];
-                friendInfo.avatarImageUrl = [[MMMomoUserMgr shareInstance] avatarImageUrlByUserId:FEED_BACK_ID];
-                
-
-				}
-					break;
-				case 2:
-				{
-					//转到关于momo介绍界面
-
-				}
-					break;
-				case 3: {
-					NSString* helpLink = @"http://m.momo.im/t/user/help";
-					MMWebViewController* webViewController = [MMCommonAPI openUrl:helpLink];
-                    if (webViewController) {
-                        //隐藏toolbar
-                        [webViewController addScript:SCRIPT_HIDE_TOOLBAR forURL:@"momo.im"];
-                    }
-				}
-					break;	
-				default:
-					break;
-			}	
-		}
-			break;
-		case 3:
-		{
-			switch (indexPath.row) {
-				case 0: {
-                    [UIAlertView alertViewWithTitle:@"提示"  
-                                            message:@"确定注销此账号?" 
-                                  cancelButtonTitle:@"取消" 
+                    
+            }
+        }
+            break;
+            
+            
+        case 1:
+        {
+            switch (indexPath.row) {
+                case 0: {
+                    [UIAlertView alertViewWithTitle:@"提示"
+                                            message:@"确定注销此账号?"
+                                  cancelButtonTitle:@"取消"
                                   otherButtonTitles:[NSArray arrayWithObject:@"确定"]
                                           onDismiss:^(int buttonIndex){
                                               [self doLogout];
                                           } onCancel:nil];
-				}
-					break;
-				default:
-					break;
-			}
-		}
-			break;
-
-		default:
-			break;
-	}	
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+            break;
+            
+        default:
+            break;
+    }	
 }
 
-- (void)onOauthExpired {
-    if ([self.navigationController.topViewController isKindOfClass:[MMLoginViewController class]]) {
-        return;
-    }
-    
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"提示" 
-                                                    message:@"当前登陆状态已经失效, 请重新登陆!" 
-                                                   delegate:self 
-                                          cancelButtonTitle:@"确定" 
-                                          otherButtonTitles: nil];
-    alert.tag = 111;
-    [alert show];
-    [alert release];
-}
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == 111) {
