@@ -201,7 +201,7 @@ static char MMTableViewRowsInSectionIsLogin[] = {2,1};
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     MMLoginViewController *controller = [[MMLoginViewController alloc] init];
     controller.hidesBottomBarWhenPushed = YES;
-    UINavigationController *navigationCtrl = [[[UINavigationController alloc] initWithRootViewController:controller] autorelease];
+    MMNavigationController *navigationCtrl = [[[MMNavigationController alloc] initWithRootViewController:controller] autorelease];
     
     MMAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     appDelegate.window.rootViewController = navigationCtrl;

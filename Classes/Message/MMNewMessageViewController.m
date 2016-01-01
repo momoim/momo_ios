@@ -91,6 +91,8 @@
 	[super loadView];
 	UIImage* image = nil;
 
+    self.view.backgroundColor = [UIColor whiteColor];
+    
 	cursorPosition = NSMakeRange(0, 0);
     
     titleButton_ = [UIButton buttonWithType:UIButtonTypeCustom];

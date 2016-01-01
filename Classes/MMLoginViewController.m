@@ -135,9 +135,8 @@
 	[button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     [button addTarget:self action:@selector(actionLogin:) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:button];
-
     
-    UIButton* registerButton = [[[UIButton alloc]initWithFrame:CGRectMake(120, 400, 80, 40)] autorelease];
+    UIButton* registerButton = [[[UIButton alloc]initWithFrame:CGRectMake(120, self.view.bounds.size.height - 60, 80, 40)] autorelease];
     registerButton.backgroundColor = [UIColor clearColor];
     [registerButton setTitle:@"注册" forState:UIControlStateNormal];
     registerButton.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -146,6 +145,7 @@
     [registerButton setTitleColor: [UIColor colorWithRed:(CGFloat)0x00/0xFF green:(CGFloat)0x56/0xFF blue:(CGFloat)0x70/0xFF alpha:1.0] forState:UIControlStateHighlighted];
     [registerButton addTarget:self action:@selector(actionRegister:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:registerButton];
+    self.registerButton = registerButton;
     
 }
 
@@ -264,6 +264,7 @@
 - (void)dealloc {
     self.telNumber = nil;
     self.telZoneCode = nil;
+    self.registerButton = nil;
     [super dealloc];
 }
 
@@ -319,5 +320,9 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+
+-(void)viewDidLayoutSubviews {
+    self.registerButton.frame = CGRectMake(120, self.view.bounds.size.height - 60, 80, 40);
+}
 @end
 

@@ -112,7 +112,7 @@
 #define DARK_COLOR [UIColor colorWithRed:(CGFloat)0xBF/0xFF green:(CGFloat)0xAF/0xFF blue:(CGFloat)0x8E/0xFF alpha:1.0]
 
 #define DEFAULT_VIEW_BACKGROUND_COLOR [UIColor colorWithRed:224.0/255.0 green:232.0/255.0 blue:236.0/255.0 alpha:1.0]
-#define NAVIGATION_TINT_COLOR [UIColor colorWithRed:0.29 green:0.72 blue:0.87 alpha:1.0]
+#define NAVIGATION_TINT_COLOR [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0]
 
 #define CHECK_NETWORK 	if ([MMCommonAPI getNetworkStatus] == kNotReachable) { \
 [MMCommonAPI showAlertHud:@"网络连接失败!" detailText:nil]; \

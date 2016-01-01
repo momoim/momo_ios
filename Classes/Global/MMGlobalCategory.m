@@ -43,6 +43,8 @@
     if ([self.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]){
         [self.navigationBar setBackgroundImage:[MMThemeMgr imageNamed:@"group_topbar.png"] forBarMetrics:0];
     }
+    
+    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {

@@ -365,6 +365,8 @@ static NSMutableDictionary* offsetDic = nil;  //动态的偏移值
 - (void)loadView {
 	[super loadView];
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     if (!gesture) {
         gesture = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(actionLeft:)] autorelease];
         gesture.direction = UISwipeGestureRecognizerDirectionRight;

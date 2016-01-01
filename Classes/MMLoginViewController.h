@@ -29,6 +29,7 @@
 @property (nonatomic, copy) NSString *telZoneCode;
 @property (nonatomic, copy) NSString *telNumber;
 @property (nonatomic, copy) NSString *strCountry;
+@property(nonatomic, retain) UIButton *registerButton;
 
 - (id)initWithMobile:(NSString*)mobile 
             zonecode:(NSString*)zonecode

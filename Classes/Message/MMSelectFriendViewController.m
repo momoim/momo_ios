@@ -111,13 +111,11 @@
 
 - (void)loadView {
 	[super loadView];
-    [self.navigationController navigationBar].tintColor = [UIColor colorWithRed:0.29 green:0.72 blue:0.87 alpha:1.0];
-	
 
 	self.navigationItem.title = @"选择好友名片(0)";
-	
+    
 	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"取消" 
-																			  style:UIBarButtonItemStyleBordered 
+																			  style:UIBarButtonItemStyleBordered
 																			 target:self 
 																			 action:@selector(actionLeft:)] autorelease];
     
