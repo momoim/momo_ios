@@ -238,19 +238,40 @@ static MMMessageSyncer* s_instance = nil;
 	
 	//comment
 	messageInfo.commentCount = [[messageDict objectForKey:@"comment_count"] intValue];
-	NSDictionary* commentDict = [messageDict objectForKey:@"comment_list"];
-	if (commentDict && [commentDict isKindOfClass:[NSDictionary class]] && commentDict.count > 0) {
-        NSString* commentId = [commentDict objectForKey:@"id"];
-        if (![[MMUIComment instance] isCommentExist:commentId ownerId:[[MMLoginService shareInstance] getLoginUserId]]) {
-            MMCommentInfo* commentInfo = [self commentFromDict:commentDict];
-            commentInfo.statusId = messageInfo.statusId;
-            commentInfo.ignoreTimeLine = YES;
-            [[MMUIComment instance] insertComment:commentInfo];
+    if (messageInfo.commentCount > 0) {
+        id comment = [messageDict objectForKey:@"comment_list"];
+        
+        if ([comment isKindOfClass:[NSArray class]]) {
+            NSArray *commentArray = comment;
+            if (commentArray.count > 0) {
+                NSDictionary *commentDict = [commentArray objectAtIndex:0];
+                NSString* commentId = [commentDict objectForKey:@"id"];
+                if (![[MMUIComment instance] isCommentExist:commentId ownerId:[[MMLoginService shareInstance] getLoginUserId]]) {
+                    MMCommentInfo* commentInfo = [self commentFromDict:commentDict];
+                    commentInfo.statusId = messageInfo.statusId;
+                    commentInfo.ignoreTimeLine = YES;
+                    [[MMUIComment instance] insertComment:commentInfo];
+                    
+                    messageInfo.recentComment = commentInfo;
+                }
+                
+                messageInfo.recentCommentId = commentId;
+            }
+        } else if ([comment isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *commentDict = comment;
+            NSString* commentId = [commentDict objectForKey:@"id"];
+            if (![[MMUIComment instance] isCommentExist:commentId ownerId:[[MMLoginService shareInstance] getLoginUserId]]) {
+                MMCommentInfo* commentInfo = [self commentFromDict:commentDict];
+                commentInfo.statusId = messageInfo.statusId;
+                commentInfo.ignoreTimeLine = YES;
+                [[MMUIComment instance] insertComment:commentInfo];
+                
+                messageInfo.recentComment = commentInfo;
+            }
             
-            messageInfo.recentComment = commentInfo;
+            messageInfo.recentCommentId = commentId;
         }
-        messageInfo.recentCommentId = commentId;
-	}
+    }
 	
 	//同步到微薄信息
 	NSArray* syncDictArray = [messageDict objectForKey:@"sync"];
