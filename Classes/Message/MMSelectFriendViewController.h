@@ -21,6 +21,6 @@
 @property(nonatomic, retain) NSArray *currentArray;
 @property (nonatomic, retain) NSArray* allFriendsArray;
 @property (nonatomic) BOOL selectedMultiFriend;
-@property (nonatomic, assign) id<MMSelectFriendViewDelegate> delegate;
+@property (nonatomic, weak) id<MMSelectFriendViewDelegate> delegate;
 
 @end

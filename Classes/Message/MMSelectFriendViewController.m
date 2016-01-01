@@ -71,7 +71,7 @@
         
         NSMutableArray *tmp = [NSMutableArray array];
         for (NSDictionary *dict in friends) {
-            MMMomoUserInfo *user = [[[MMMomoUserInfo alloc] init] autorelease];
+            MMMomoUserInfo *user = [[MMMomoUserInfo alloc] init] ;
             user.uid = [[dict objectForKey:@"id"] longLongValue];
             user.avatarImageUrl = [dict objectForKey:@"avatar"];
             user.realName = [dict objectForKey:@"name"];
@@ -102,10 +102,8 @@
 - (void)dealloc {
     self.allFriendsArray = nil;
     self.currentArray = nil;
-    [searchCtr release];
     searchCtr = nil;
-    
-    [super dealloc];
+
 }
 
 
@@ -114,28 +112,28 @@
 
 	self.navigationItem.title = @"选择好友名片(0)";
     
-	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"取消" 
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消"
 																			  style:UIBarButtonItemStyleBordered
 																			 target:self 
-																			 action:@selector(actionLeft:)] autorelease];
+																			 action:@selector(actionLeft:)] ;
     
 	    
     if (selectedMultiFriend) {    
-		self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"完成" 
+		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成"
 																				   style:UIBarButtonItemStyleBordered 
 																				  target:self 
-																				  action:@selector(actionRight:)] autorelease];
+                                                                                  action:@selector(actionRight:)];
 		self.navigationItem.rightBarButtonItem.enabled = NO;
 	}
 		
 	CGFloat height = self.view.frame.size.height - 44;
-	friendsTable = [[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, height) style:UITableViewStylePlain] autorelease];
+    friendsTable = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, height) style:UITableViewStylePlain];
 	friendsTable.delegate = self;
 	friendsTable.dataSource = self;
 	[self.view addSubview:friendsTable];
-	friendsTable.tableFooterView = [[[UIView alloc] init] autorelease];
+    friendsTable.tableFooterView = [[UIView alloc] init];
 	
-	UISearchBar *searchBar = [[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)] autorelease];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     searchBar.delegate = self;
 	searchBar.placeholder = @"查找名片";
     friendsTable.tableHeaderView = searchBar;
@@ -302,7 +300,7 @@
 	
 	UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MMSelectFriendCell"];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MMSelectImageCell"] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MMSelectImageCell"];
 		
 		
 		MMAvatarImageView* imageView = [[MMAvatarImageView alloc] initWithAvatarImageURL:nil];
@@ -311,31 +309,27 @@
 		imageView.layer.masksToBounds = YES;
 		imageView.layer.cornerRadius = 3.0;
 		[cell.contentView addSubview:imageView];
-		[imageView release];
 		
 		UILabel* nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(68, 0, 190, 40)];		
 		nameLabel.backgroundColor = [UIColor clearColor];
 		nameLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
 		nameLabel.tag = 2;
 		[cell.contentView addSubview:nameLabel];
-		[nameLabel release];
 		
 		UILabel* numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(68, 25, 190, 32)];
 		numberLabel.backgroundColor = [UIColor clearColor];
 		numberLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
 		numberLabel.tag = 4;
 		[cell.contentView addSubview:numberLabel];
-		[numberLabel release];
 		
 		UIImage *image = [MMThemeMgr imageNamed:@"momo_setting_ic_hook_unclick.png"];
 		UIImageView* checkImageView = [[UIImageView alloc] initWithFrame:CGRectMake(260, 15, image.size.width, image.size.height)];
 		checkImageView.image = image;
 		checkImageView.tag = 3;
 		[cell.contentView addSubview:checkImageView];
-		[checkImageView release];
 	}
 	
-	cell.selectedBackgroundView = [[[UIView alloc] initWithFrame:cell.frame] autorelease];
+    cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = TABLE_CELL_SELECT_COLOR;
 	
 	MMAvatarImageView* imageView = (MMAvatarImageView*)[cell.contentView viewWithTag:1];

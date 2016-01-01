@@ -37,7 +37,7 @@
 		04B39BA2131C955B0049157A /* MMDraftMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B39BA1131C955B0049157A /* MMDraftMgr.m */; };
 		04B39BAF131CBDCE0049157A /* MMDraftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B39BAE131CBDCE0049157A /* MMDraftCell.m */; };
 		04B4C39012F29BFE00BD7773 /* MMCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B4C38F12F29BFE00BD7773 /* MMCommentCell.m */; };
-		04B4F46E12ED5242007E7C87 /* MMSelectFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B4F46D12ED5242007E7C87 /* MMSelectFriendViewController.m */; };
+		04B4F46E12ED5242007E7C87 /* MMSelectFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B4F46D12ED5242007E7C87 /* MMSelectFriendViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		04B558CC1304D4B00026FAFB /* MMDraft.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B558CB1304D4B00026FAFB /* MMDraft.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -1810,6 +1810,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -1832,6 +1833,7 @@
 			buildSettings = {
 				"ALWAYS_SEARCH_USER_PATHS[arch=*]" = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
 				GCC_C_LANGUAGE_STANDARD = c99;
