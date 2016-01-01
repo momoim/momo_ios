@@ -123,7 +123,7 @@
     password_.returnKeyType = UIReturnKeyDone;
     [self.view addSubview:password_];
     
-	UIButton* button = [[[UIButton alloc]initWithFrame:CGRectMake(40, 158, 240, 40)] autorelease];
+	UIButton* button = [[[UIButton alloc]initWithFrame:CGRectMake(40, 164, 240, 40)] autorelease];
 	button.backgroundColor = [UIColor clearColor];    
     [button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn.png"] forState:UIControlStateNormal];
 	[button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn_press.png"] forState:UIControlStateHighlighted];
@@ -135,7 +135,7 @@
 	[self.view addSubview:button];
     
     if ([telNumber_ length] > 0) {
-        button = [[[UIButton alloc]initWithFrame:CGRectMake(40, 250, 240, 40)] autorelease];
+        button = [[[UIButton alloc]initWithFrame:CGRectMake(40, 220, 240, 40)] autorelease];
         button.backgroundColor = [UIColor clearColor];
         [button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn.png"] forState:UIControlStateNormal];
         [button setBackgroundImage:[MMThemeMgr imageNamed:@"login_btn_press.png"] forState:UIControlStateHighlighted];
