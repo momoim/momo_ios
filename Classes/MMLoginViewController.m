@@ -229,6 +229,9 @@
             token.phoneNumber = phone;
             [token save];
             
+            [[MMLoginService shareInstance] setUserName:[response objectForKey:@"name"]];
+            [[MMLoginService shareInstance] setAvatarImageURL:[response objectForKey:@"avatar"]];
+            
             //发送登陆通知
             NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:phone, @"user_mobile", @"YES", @"realLogin", nil];
             NSNotification *notification = [NSNotification notificationWithName:kMMUserLogin object:nil userInfo:userInfo];

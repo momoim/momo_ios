@@ -1209,6 +1209,7 @@ static NSMutableDictionary* offsetDic = nil;  //动态的偏移值
 	newCommentInfo.ownerId = draftInfo.ownerId;
 	newCommentInfo.statusId = draftInfo.replyStatusId;
 	newCommentInfo.uid = [[MMLoginService shareInstance] getLoginUserId];
+    newCommentInfo.realName = [[MMLoginService shareInstance] getLoginRealName];
 	newCommentInfo.text = [draftInfo textWithoutUid];
 	newCommentInfo.uploadStatus = draftInfo.uploadStatus;
 	newCommentInfo.draftId = draftInfo.draftId;
