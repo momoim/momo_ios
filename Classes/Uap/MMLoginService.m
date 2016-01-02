@@ -72,10 +72,6 @@
 	return [MMGlobalData getPreferenceforKey:@"user_mobile"];
 }
 
--(NSInteger)userStatus {
-    return [[MMGlobalData getPreferenceforKey:@"user_status"] intValue];
-}
-
 - (NSString*)avatarImageURL {
 	return [MMGlobalData getPreferenceforKey:@"avatar"];
 }
@@ -87,9 +83,6 @@
 	[self didChangeValueForKey:@"avatarImageURL"];
 }
 
-- (BOOL)isProbationer {
-    return [self userStatus] == 0;
-}
 
 - (void)setUserName:(NSString*)name {
     [MMGlobalData setPreference:name forKey:@"user_name"];

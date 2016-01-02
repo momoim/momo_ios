@@ -95,13 +95,6 @@ static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 }
 
 - (MMMomoUserInfo*)userInfoByUserId:(NSUInteger)uid {
-    if (FEED_BACK_ID == uid) {
-        MMMomoUserInfo *userInfo = [[[MMMomoUserInfo alloc] init] autorelease];
-        userInfo.uid = FEED_BACK_ID;
-        userInfo.realName = @"小秘";
-        userInfo.avatarImageUrl = @"";
-        return userInfo;
-    }
 	NSInteger selfUid = [[MMLoginService shareInstance] getLoginUserId];
 	if (selfUid == uid) {
 		MMMomoUserInfo *userInfo = [[[MMMomoUserInfo alloc] init] autorelease];
@@ -124,10 +117,6 @@ static pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 }
 
 - (NSString*)realNameByUserId:(NSUInteger)uid {
-    if (uid == FEED_BACK_ID) {
-        return @"小秘";
-    }
-    
     return PARSE_NULL_STR([self userInfoByUserId:uid].realName);
 }
 

@@ -148,8 +148,7 @@
         [alertView show];
         return;
     }
-    
-    [MMGlobalData setPreference:[NSNumber numberWithInt:3] forKey:@"user_status"];
+
     [[MMLoginService shareInstance] setUserName:tfName_.text];
 
  

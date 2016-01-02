@@ -15,53 +15,13 @@
 
 #define SERVER OUTER_SERVER
 
-#if (SERVER == OUTER_SERVER)
-    //外网
-    #define ALBUM_URL @"http://api.momo.im/"
+//外网
+#define ALBUM_URL @"http://api.momo.im/"
+#define ALBUM_SSL_URL @"https://api.momo.im/"
+//#define ALBUM_URL @"http://192.168.1.103:8080/"
+//#define ALBUM_SSL_URL @"https://192.168.1.103:8080/"
 
 
-    #define ALBUM_SSL_URL @"https://api.momo.im/"
-
-
-    #define FEED_BACK_GROUP_ID 136
-    #define FEED_BACK_ID 353    //小秘ID
-
-#if 0
-
-    #define MQ_PROXY_HOSTNAME "proxy.momo.im"   //MQ
-
-    #define MQ_HOSTPORT 5672
-    #define MQ_PROXY_PORT 9191
-
-    #define REQUEST_DETAIL_URL @"http://v3.api.momo.im/transfer/apiserver.php"
-    #define MQ_HOST "/"
-    #define CHANGE_PASSWORD @"http://m.momo.im/t/user/password_change"
-    #define RESET_PASSWORD @"http://m.momo.im/t/user/password_reset"
-    #define CHAT_HISTORY @"http://m.momo.im/t/chats"
-
-    #define YOU_DAO_ID 3388784	//有道翻译 
-    #define WEARTHER_91 10643866   //91黄历天气
-#endif
-#else
-    //外网仿真
-    #define ALBUM_URL @"http://api.simulate.momo.im/"
-    #define ALBUM_SSL_URL @"https://simulate-oauth.momo.im/"
-    #define MQ_PROXY_HOSTNAME "proxy.simulate.momo.im"  // "121.207.242.210"   //MQ
-
-    #define MQ_HOSTPORT 5672
-    #define MQ_PROXY_PORT 9292
-    #define FEED_BACK_GROUP_ID 136
-    #define FEED_BACK_ID 353    //小秘ID
-    #define REQUEST_DETAIL_URL @"http://api.simulate.momo.im/transfer/apiserver.php"
-    #define MQ_HOST "/"
-    #define CHANGE_PASSWORD @"http://m.simulate.momo.im/t/user/password_change"
-    #define RESET_PASSWORD @"http://m.simulate.momo.im/t/user/password_reset" 
-    #define CHAT_HISTORY @"http://m.simulate.momo.im/t/chats"
-
-    #define YOU_DAO_ID 60566	//有道翻译 
-    #define WEARTHER_91 71085   //91黄历天气
-
-#endif
 
 #define SCRIPT_HIDE_TOOLBAR @"document.getElementsByClassName(\"toolbar\")[0].style.display='none';"
 

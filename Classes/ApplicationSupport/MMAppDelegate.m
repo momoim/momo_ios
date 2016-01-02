@@ -16,6 +16,7 @@
 #import "MMLoginViewController.h"
 #import "MMMainTabBarController.h"
 #import "Token.h"
+#import "MMLoginService.h"
 
 #define kMMTabBarImageView 99
 
@@ -80,7 +81,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     window.backgroundColor = [UIColor whiteColor];
     
-    if ([Token instance].uid == 0 ) {
+    if ([Token instance].uid == 0 || [[MMLoginService shareInstance] userName].length == 0) {
         MMLoginViewController *controller = [[[MMLoginViewController alloc] init] autorelease];
         controller.hidesBottomBarWhenPushed = YES;
         
