@@ -144,20 +144,6 @@ const NSString *kMMIsFuzzySearch				= @"MMIsFuzzySearch";//1 YES,0 NO  default 1
 	[MMGlobalData savePreference];	
 }
 
-- (BOOL)syncToWeibo {
-    NSString *str = [MMGlobalData getPreferenceforKey:kMMSyncToWeibo];
-	if (!str || str.length == 0) {
-		return NO;
-	}
-    return [str boolValue];
-}
-
-- (void)setSyncToWeibo:(BOOL)syncToWeibo {
-    NSString *str = [NSString stringWithFormat:@"%d", syncToWeibo];
-    [MMGlobalData setPreference:str forKey:(NSString*)kMMSyncToWeibo]; 
-	[MMGlobalData savePreference];
-}
-
 - (BOOL)downThumbUnderGPRS {
     NSString *str = [MMGlobalData getPreferenceforKey:kMMDownThumbUnderGPRS];
 	if (!str || str.length == 0) {

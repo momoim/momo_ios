@@ -32,7 +32,7 @@
 - (void)loadView {
 	[super loadView];
 	
-    [toolBar setItems:[NSArray arrayWithObjects:atItem, flexItem, faceItem, flexItem, weiboItem, nil]];
+    [toolBar setItems:[NSArray arrayWithObjects:atItem, flexItem, faceItem, flexItem, nil]];
 }
 
 - (void)actionLeft:(id)sender {

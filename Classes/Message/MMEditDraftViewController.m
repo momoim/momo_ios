@@ -66,7 +66,7 @@
 	[super loadView];
 	
     if (messageDraft.draftType == draftRetweet) {
-        [toolBar setItems:[NSArray arrayWithObjects:atItem, flexItem, faceItem, flexItem, weiboItem, nil]];
+        [toolBar setItems:[NSArray arrayWithObjects:atItem, flexItem, faceItem, flexItem, nil]];
     }
     
     //解析@好友
@@ -99,10 +99,6 @@
         [messageTextView appendHidePortionText:hidePortionText];
     }
 //	messageTextView.text = messageDraft.text;
-	
-	if (messageDraft.syncToWeibo) {
-		[weiboButton setImage:[MMThemeMgr imageNamed:@"ic_sina_have.png"] forState:UIControlStateNormal];
-	}
 	
 	[super updateImageAndAddressButton];
 	[super verifyUploadButton];

@@ -99,7 +99,7 @@
 	[refreshButton setImage:image forState:UIControlStateHighlighted];
 	[refreshButton setBackgroundImage:[MMThemeMgr imageNamed:@"common_topbar_ic_press.png"] forState:UIControlStateHighlighted];
 	[refreshButton addTarget:self action:@selector(actionLeft) forControlEvents:UIControlEventTouchUpInside];
-	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:refreshButton] autorelease];
+//	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:refreshButton] autorelease];
     
     //关于我的数目
     unReadAboutMeBgView = [[[UIImageView alloc] initWithImage:[MMThemeMgr imageNamed:@"number_bg.png"]] autorelease];

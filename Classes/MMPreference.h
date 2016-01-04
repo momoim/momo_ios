@@ -28,7 +28,6 @@ extern const NSString *kMMIsFuzzySearch;
 @property (nonatomic) NSInteger syncMode;
 @property (nonatomic) BOOL isExcavationFriend;
 @property (nonatomic) BOOL shouldPlaySound;
-@property (nonatomic) BOOL  syncToWeibo;
 @property (nonatomic) BOOL downThumbUnderGPRS;
 @property (nonatomic, copy) NSString* startView;
 @property (nonatomic) BOOL uploadCrashLog;

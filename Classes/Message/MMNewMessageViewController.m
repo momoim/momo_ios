@@ -180,13 +180,7 @@
 	[photoLibraryButton addTarget:self action:@selector(actionForSelectAddress) forControlEvents:UIControlEventTouchUpInside];
 	photoLibraryItem = [[[UIBarButtonItem alloc] initWithCustomView:photoLibraryButton] autorelease];
 	
-	weiboButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	image = [MMThemeMgr imageNamed:@"ic_sina_normal.png"];
-	[weiboButton setImage:image forState:UIControlStateNormal];
-	[weiboButton setImage:[MMThemeMgr imageNamed:@"ic_sina_press.png"] forState:UIControlStateHighlighted];
-	weiboButton.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-	[weiboButton addTarget:self action:@selector(actionForSendToWeibo) forControlEvents:UIControlEventTouchUpInside];
-	weiboItem = [[[UIBarButtonItem alloc] initWithCustomView:weiboButton] autorelease];
+
 	
 	wordCountLabel = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 40, 20)] autorelease];
 	wordCountLabel.text = [NSString stringWithFormat:@"%d", wordCountLimit ? wordCountLimit : 140];
@@ -198,7 +192,7 @@
 																			  target:nil
 																			  action:nil] autorelease];
 	[toolBar setItems:[NSArray arrayWithObjects:atItem, flexItem, faceItem, flexItem, cameraItem, flexItem, photoLibraryItem, 
-												flexItem, weiboItem, nil]];
+												flexItem, nil]];
 	[self.view addSubview:toolBar];
 	
 	selectedImagesButton  = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -233,11 +227,6 @@
     [addressBtn addSubview:addressName];
     [addressBtn addTarget:self action:@selector(actionForSelectAddress) forControlEvents:UIControlEventTouchUpInside];
     [self.view  addSubview:addressBtn];
-    
-    syncToWeibo = [MMPreference shareInstance].syncToWeibo;
-    if (syncToWeibo) {
-        [weiboButton setImage:[MMThemeMgr imageNamed:@"ic_sina_have.png"] forState:UIControlStateNormal];
-    }
     
     faceBgView = [[UIView alloc] initWithFrame:CGRectMake(0, iPhone5?204+88:204, 320, 216)];
     faceBgView.backgroundColor = RGBCOLOR(175, 221, 234);
@@ -278,18 +267,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    
-	progressHub = nil;
-	selectedImagesCountLabel = nil;
-	selectedImagesButton = nil;
-	wordCountLabel = nil;
-	
-    //tool bar buttons
-	toolBar = nil;
-	weiboButton = nil;
-}
 
 - (void)actionPhoto {
 	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil 
@@ -373,32 +350,7 @@
 - (void)checkBindToWeiboInBackground {
 }
 
-- (void)actionForSendToWeibo {
-    BOOL bindToWeibo = [[MMLoginService shareInstance] bindToWeibo];
-    if (!bindToWeibo) {
-        progressHub.labelText = @"获取微薄绑定信息..";
-        progressHub.detailsLabelText = @"";
-        [progressHub show:YES];
-        
-        MMHttpRequestThread* thread = [[MMHttpRequestThread alloc] initWithTarget:self 
-																		 selector:@selector(checkBindToWeiboInBackground) 
-																		   object:nil];
-		[backgroundThreads addObject:thread];
-		[thread start];
-		[thread release];
-        return;
-    }
-    
-	if (syncToWeibo) {
-		syncToWeibo = NO;
-		[weiboButton setImage:[MMThemeMgr imageNamed:@"ic_sina_normal.png"] forState:UIControlStateNormal];
-        [MMPreference shareInstance].syncToWeibo = NO;
-	} else {
-		syncToWeibo = YES;
-		[weiboButton setImage:[MMThemeMgr imageNamed:@"ic_sina_have.png"] forState:UIControlStateNormal];
-		[MMPreference shareInstance].syncToWeibo = YES;
-	}
-}
+
 
 - (void)actionForSelectFace {
     if ([messageTextView isFirstResponder]) {

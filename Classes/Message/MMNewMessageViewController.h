@@ -51,8 +51,7 @@
 	UIBarButtonItem* wordCountItem;
 	UIBarButtonItem *flexItem;
     UIBarButtonItem* faceItem;
-	UIBarButtonItem* weiboItem;
-	UIButton*		 weiboButton;
+
     
     UIView*          faceBgView;
     MMFaceView*      faceView;
