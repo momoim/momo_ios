@@ -23,6 +23,7 @@
 #import "MMGlobalPara.h"
 #import "UIAlertView+MKBlockAdditions.h"
 #import "MMAppDelegate.h"
+#import "ProfileViewController.h"
 
 static char MMTableViewRowsInSectionIsLogin[] = {2,1};
 
@@ -217,7 +218,9 @@ static char MMTableViewRowsInSectionIsLogin[] = {2,1};
         case 0:{
             switch (indexPath.row) {
                 case 0: {
-                    
+                    ProfileViewController *profileController = [[[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil] autorelease];
+                    profileController.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:profileController animated: YES];
                 }
                     break;
                 case 1: {

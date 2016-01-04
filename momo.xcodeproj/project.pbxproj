@@ -52,6 +52,8 @@
 		6D2DA5FE142F47CB00B8E631 /* MMAboutMeRootCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46EAD142F41CA006572D2 /* MMAboutMeRootCell.m */; };
 		6D2DA5FF142F47CE00B8E631 /* MMAboutMeDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB46EB3142F4219006572D2 /* MMAboutMeDragView.m */; };
 		6D686948142B1CCE00EB7206 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D686947142B1CCD00EB7206 /* MapKit.framework */; };
+		6D76B2921C3A26630000338E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D76B2901C3A26630000338E /* ProfileViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6D76B2931C3A26630000338E /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D76B2911C3A26630000338E /* ProfileViewController.xib */; };
 		6D83FBD0138F92FA00432C9E /* oauth.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D83FBCE138F92FA00432C9E /* oauth.c */; };
 		6D83FBD8138F931700432C9E /* hmac.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D83FBD2138F931700432C9E /* hmac.c */; };
 		6D83FBD9138F931700432C9E /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 6D83FBD4138F931700432C9E /* md5.c */; };
@@ -307,6 +309,9 @@
 		6D12F96C1432F25D002DBAF8 /* wavwriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wavwriter.h; sourceTree = "<group>"; };
 		6D29D24314B7065300E0FA9A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6D686947142B1CCD00EB7206 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6D76B28F1C3A26630000338E /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		6D76B2901C3A26630000338E /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		6D76B2911C3A26630000338E /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		6D7F70E81390826E00F05673 /* unittest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "unittest-Info.plist"; sourceTree = "<group>"; };
 		6D7F70F61390832E00F05673 /* MMUapRequestUnitTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMUapRequestUnitTest.m; path = Uap/MMUapRequestUnitTest.m; sourceTree = "<group>"; };
 		6D83FBCE138F92FA00432C9E /* oauth.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = oauth.c; path = Uap/oauth.c; sourceTree = "<group>"; };
@@ -1052,6 +1057,9 @@
 				6D9BC0F71C3270E500F0A2AE /* MMPreferenceCell.m */,
 				6D9BC0F81C3270E500F0A2AE /* MMPreferenceViewController.h */,
 				6D9BC0F91C3270E500F0A2AE /* MMPreferenceViewController.m */,
+				6D76B28F1C3A26630000338E /* ProfileViewController.h */,
+				6D76B2901C3A26630000338E /* ProfileViewController.m */,
+				6D76B2911C3A26630000338E /* ProfileViewController.xib */,
 				6D9BC0ED1C326A3800F0A2AE /* MMLoginViewController.h */,
 				6D9BC0EE1C326A3800F0A2AE /* MMLoginViewController.m */,
 				6D9BC0FF1C32716C00F0A2AE /* MMRegisterLoginViewController.h */,
@@ -1471,6 +1479,7 @@
 				8C95087612638677009D7DB6 /* ICON.PNG in Resources */,
 				8CA4E039139392AE00A3E070 /* momo.db in Resources */,
 				8CAB568E13BAF93600EB0273 /* Default.png in Resources */,
+				6D76B2931C3A26630000338E /* ProfileViewController.xib in Resources */,
 				8CABBDAD13FA3A8800DE43EE /* Sound in Resources */,
 				8CAA76671405EC3A00BD7806 /* Default@2x.png in Resources */,
 				8CAA76691405EC4200BD7806 /* ICON@2x.PNG in Resources */,
@@ -1644,6 +1653,7 @@
 				8CAB4763151B189A006232C5 /* SBJsonStreamWriterState.m in Sources */,
 				8CAB4764151B189A006232C5 /* SBJsonTokeniser.m in Sources */,
 				8CAB4765151B189A006232C5 /* SBJsonUTF8Stream.m in Sources */,
+				6D76B2921C3A26630000338E /* ProfileViewController.m in Sources */,
 				8CAB4766151B189A006232C5 /* SBJsonWriter.m in Sources */,
 				8CAB4768151B1910006232C5 /* SBJson.m in Sources */,
 				F065D41E151C21E10068C489 /* MMAlbumPickerController.m in Sources */,

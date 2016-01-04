@@ -52,6 +52,7 @@
 - (NSArray*)getFreinds:(NSInteger*)status;
 - (NSArray*)getPotentialFriends:(NSArray*)mobiles statusCode:(NSInteger*)status;
 
+- (NSString*)changedMyAvatar:(NSData*)avatarImageData originImage:(NSData*)originImageData statusCode:(NSInteger*)status;
 //是否在MQ服务器注册推送
 - (BOOL)registerPushNotification:(NSString*)deviceToken;
 - (void)unregisterPushNotification;

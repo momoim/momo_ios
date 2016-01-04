@@ -18,6 +18,7 @@
 #import "MMAvatarMgr.h"
 #import "MMGlobalCategory.h"
 #import "MMPreference.h"
+#import "GTMBase64.h"
 
 #define CLIENT_PLATFORM 2	
 
@@ -297,6 +298,32 @@
     }
     return resp;
 }
+
+#pragma mark 头像
+- (NSString*)changedMyAvatar:(NSData*)avatarImageData originImage:(NSData*)originImageData statusCode:(NSInteger*)status {
+    NSMutableDictionary* postObject = [NSMutableDictionary dictionary];
+    NSString *strEncodeData = [GTMBase64 stringByEncodingBytes:[avatarImageData bytes] length:[avatarImageData length]];
+    [postObject setObject:strEncodeData forKey:@"middle_content"];
+    
+    if (originImageData) {
+        NSString *strOriginEncodeData = [GTMBase64 stringByEncodingBytes:[originImageData bytes] length:[originImageData length]];
+        [postObject setObject:strOriginEncodeData forKey:@"original_content"];
+    }
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithPath:@"photo/update_avatar.json" withObject:postObject];
+    [request startSynchronous];
+    
+    NSInteger statusCode = [request responseStatusCode];
+    *status = statusCode;
+    if (statusCode != 200) {
+        NSLog(@"changed avatar failed, status code = %zd %@", statusCode, [request responseString]);
+        *status = statusCode;
+        return nil;
+    }
+    NSDictionary *resp = [request responseObject];
+    return [resp objectForKey:@"src"];
+}
+
 
 #pragma mark 推送相关
 - (BOOL)registerPushNotification:(NSString*)deviceToken {

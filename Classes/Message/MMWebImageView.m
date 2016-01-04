@@ -88,6 +88,21 @@
 @synthesize placeholderImage, imageURL, delegate, indicatorView;
 @synthesize cachePolicy, storagePolicy, ignoreGPRS, stopDownloadImageAfterViewReleased;
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        cachePolicy = ASIOnlyLoadIfNotCachedCachePolicy;
+        storagePolicy = ASICachePermanentlyCacheStoragePolicy;
+        ignoreGPRS = NO;
+        stopDownloadImageAfterViewReleased = YES;
+        successLoadImage = NO;
+        
+        indicatorView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
+        [self addSubview:indicatorView];
+    }
+    return self;
+}
+
 - (id)initWithDefaultPlaceholderImage {
 	return [self initWithPlaceholderImage:[MMThemeMgr imageNamed:@"momo_dynamic_picture_dolphin.png"]];
 }
