@@ -67,7 +67,7 @@
     [navigationController navigationBar].tintColor = NAVIGATION_TINT_COLOR;
     [localViewControllers addObject:navigationController];
     [arrayViewNames_ addObject:kMMAddressBookViewController];
-    tabBarItem = [[UITabBarItem alloc] initWithTitle:@"请求"
+    tabBarItem = [[UITabBarItem alloc] initWithTitle:@"好友"
                                                image:[MMThemeMgr imageNamed:@"momo_dynamic_bottombar_contacts.png"]
                                                  tag:11];
     viewController.tabBarItem = tabBarItem;

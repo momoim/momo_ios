@@ -9,10 +9,6 @@
 
 int main(int argc, char *argv[]) {
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    
-#ifdef NDEBUG
-    [MMCrashHandle shareInstance];
-#endif
 	
 	//保证多线程模式
 	NSObject* tmpObject = [[NSObject alloc] init];

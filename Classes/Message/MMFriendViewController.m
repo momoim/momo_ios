@@ -111,26 +111,8 @@ alpha:(a)]
             
             [[MMLoginService shareInstance] decreaseActiveCount];
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSMutableArray *array = [NSMutableArray array];
-                for (NSDictionary *obj in potentialFriends) {
-                    int64_t uid = [[obj objectForKey:@"id"] longLongValue];
-                    
-                    NSInteger pos = [friends indexOfObjectPassingTest:^BOOL(NSDictionary *o, NSUInteger idx, BOOL * _Nonnull stop) {
-                        int64_t n = [[o objectForKey:@"id"] longLongValue];
-                        if (uid == n) {
-                            *stop = YES;
-                            return YES;
-                        }
-                        return NO;
-                    }];
-                    
-                    if (pos == NSNotFound && uid != [Token instance].uid) {
-                        [array addObject:obj];
-                    }
-                }
-                
                 self.friends = friends;
-                self.potentialFriends = array;
+                self.potentialFriends = [NSMutableArray arrayWithArray:potentialFriends];
                 
                 for (NSDictionary *dict in self.friends) {
                     MMMomoUserInfo *user = [[MMMomoUserInfo alloc] init];
