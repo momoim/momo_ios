@@ -638,7 +638,7 @@
 				}
                 
                 if ([self.navigationController.topViewController isKindOfClass:[self class]]) {
-                    if ([MMCommonAPI getNetworkStatus] != kNotReachable) {
+                    if ([MMCommonAPI getNetworkStatus] != NotReachable) {
                         NSString* errorString = [dict objectForKey:@"errorString"];
                         if (errorString.length > 0) {
                             NSString* result = [NSString stringWithFormat:@"下载分享失败:%@", errorString];
@@ -691,7 +691,7 @@
 				}
                 
                 if ([self.navigationController.topViewController isKindOfClass:[self class]]) {
-                    if ([MMCommonAPI getNetworkStatus] != kNotReachable) {
+                    if ([MMCommonAPI getNetworkStatus] != NotReachable) {
                         NSString* errorString = [dict objectForKey:@"errorString"];
                         if (errorString.length > 0) {
                             NSString* result = [NSString stringWithFormat:@"分享下载失败:%@", errorString];

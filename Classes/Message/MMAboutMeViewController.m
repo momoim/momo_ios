@@ -687,7 +687,7 @@ enum  {
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
 	
 	
-	if ([MMCommonAPI getNetworkStatus] == kNotReachable) {
+	if ([MMCommonAPI getNetworkStatus] == NotReachable) {
 		[MMCommonAPI alert:@"网络连接失败!"];
 		[textField resignFirstResponder];
 		return YES;

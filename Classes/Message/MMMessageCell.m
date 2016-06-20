@@ -25,6 +25,7 @@
 #import "MMMapViewController.h"
 #import "MMGlobalCategory.h"
 #import "MMGlobalPara.h"
+#import "Reachability.h"
 
 //SIZE
 #define MIN_HEIGHT 64

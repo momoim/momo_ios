@@ -1512,7 +1512,7 @@ static NSMutableDictionary* offsetDic = nil;  //动态的偏移值
 //}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if ([MMCommonAPI getNetworkStatus] == kNotReachable) {
+    if ([MMCommonAPI getNetworkStatus] == NotReachable) {
 		[MMCommonAPI showAlertHud:@"网络连接失败!" detailText:nil];
 		return NO;
 	}
